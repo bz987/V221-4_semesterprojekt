@@ -27,9 +27,27 @@ public class CustomerContainer {
         return true;
     }
     
-    private Costumer getCostumer(String phoneNumber){
-        return null;
+    public boolean removeCostumer(){
+        return true;
     }
+    
+    public Costumer getCostumer(String phoneNumber){  /// skal måske lige fikses
+        int i = 0;
+        boolean found = false;
+        Costumer customerFound = null;
+        while(!found && i < customers.size()){
+            if(customers.containsKey(phoneNumber)){
+                customerFound = customers.get(i);
+                found = true;
+                i++;
+            }
+            else{
+                i++;
+            }
+        }
+        return customerFound;
+    }
+    
     
     
 }
