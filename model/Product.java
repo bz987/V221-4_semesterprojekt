@@ -48,5 +48,32 @@ public class Product {
         return location;
     }
     
+    private void setName(String name){
+        this.name = name;
+    }
+    
+    private void setAmount(int amount){
+        this.amount = amount;
+    }
+    
+    private void setPriceCost(int priceCost){
+        this.priceCost = priceCost;
+    }
+    
+    private void setRetailPrice(int retailPrice){
+        this.retailPrice = retailPrice;
+    }
+    
+    private void setCategory(String category){
+        this.category = category;
+    }
+    
+    private void setBarcode(String barcode){
+        this.barcode = barcode;
+    }
+    
+    private void setLocation(String location){
+        this.location = location;
+    }
 }
 
