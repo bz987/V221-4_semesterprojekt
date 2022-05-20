@@ -17,7 +17,7 @@ public class ProductContainer {
         return instance;
     }
     
-    private boolean addCustomer(String id, Product p){
+    public boolean addProduct(String id, Product p){
         if(instance != null){
             products.put(id, p);
         }else{
@@ -27,8 +27,11 @@ public class ProductContainer {
         return true;
     }
     
-    private Costumer getCostumer(String phoneNumber){
+    public Product getProduct(String phoneNumber){
         return null;
     }
     
+    public boolean removeProduct(){
+        return true;
+    }
 }
