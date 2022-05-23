@@ -2,25 +2,26 @@ package controller;
 import model.*;
 
 public class SalesAssistantController {
-    private SalesContainer salesContainer;
+    private SalesAssistantContainer salesAssistantContainer;
 
     public SalesAssistantController(){
-        salesContainer = SalesContainer.getInstance();
+        salesAssistantContainer = SalesAssistantContainer.getInstance();
     }
-    
+
     public SalesAssistant findAssistant(){
         return null;
     }
-    
-    public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){
+
+    public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){ 
         SalesAssistant assistant = new SalesAssistant(name, phoneNumber, address, id, monthlySalary);
-        salesContainer.addSalesAssistant(assistant);
+        salesAssistantContainer.addSalesAssistant(phoneNumber, assistant);
+        return true; // skal nok laves en ændring her
     }
-    
+
     public boolean updateAssistant(){
         return true;
     }
-    
+
     public boolean deleteAssistant(){
         return true;
     }
