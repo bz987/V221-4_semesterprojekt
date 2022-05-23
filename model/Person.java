@@ -22,4 +22,16 @@ public abstract class Person {
     public String getAddress(){
         return address;
     }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public void setAddress(String address){
+        this.address = address;
+    }
 }
