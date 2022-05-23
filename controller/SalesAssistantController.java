@@ -12,8 +12,8 @@ public class SalesAssistantController {
         return null;
     }
     
-    public boolean createAssistant(){
-        return true;
+    public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){
+        SalesAssistant assistant = new SalesAssistant(name, phoneNumber, address, id, monthlySalary);
     }
     
     public boolean updateAssistant(){

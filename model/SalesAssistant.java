@@ -4,25 +4,25 @@ public class SalesAssistant extends Person {
     private String id;
     private int monthlySalary;
     
-    private SalesAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){
+    public SalesAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){
         super(name, phoneNumber, address);
         this.id = id;
         this.monthlySalary = monthlySalary;
     }
     
-    private String getID(){
+    public String getID(){
         return id;
     }
     
-    private int getMonthlySalary(){
+    public int getMonthlySalary(){
         return monthlySalary;
     }
     
-    private void setId(){
+    public void setId(){
         this.id = id;
     }
     
-    private void setMonthlySalary(){
+    public void setMonthlySalary(){
         this.monthlySalary = monthlySalary;
     }
 }

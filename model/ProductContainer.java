@@ -5,7 +5,6 @@ public class ProductContainer {
     private HashMap<String, Product> products;
     private static ProductContainer instance;
     
-    
     private ProductContainer(){
         products = new HashMap<>();
     }

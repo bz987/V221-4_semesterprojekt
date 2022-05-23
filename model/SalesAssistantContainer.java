@@ -16,7 +16,7 @@ public class SalesAssistantContainer {
         return instance;
     }
 
-    private boolean addSalesAssistant(SalesAssistant assistant, String phoneNumber){
+    public boolean addSalesAssistant(SalesAssistant assistant, String phoneNumber){
         if(instance != null){
             salesAssistants.put(phoneNumber, assistant);
         }else{

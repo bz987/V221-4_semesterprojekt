@@ -3,15 +3,15 @@ package model;
 public class Warehouse {
     private String address;
     
-    private Warehouse(String address){
+    public Warehouse(String address){
         this.address = address;
     }
     
-    private String getAddress(){
+    public String getAddress(){
         return address;
     }
     
-    private void setAddress(){
+    public void setAddress(){
         this.address = address;
     }
 }

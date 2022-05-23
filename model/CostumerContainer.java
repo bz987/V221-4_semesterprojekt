@@ -17,7 +17,7 @@ public class CostumerContainer {
         return instance;
     }
     
-    private boolean addCostumer(Costumer c, String phoneNumber){
+    public boolean addCostumer(Costumer c, String phoneNumber){
         if(instance != null){
             costumers.put(phoneNumber, c);
         }else{
@@ -26,8 +26,13 @@ public class CostumerContainer {
         return true;
     }
     
-    public boolean removeCostumer(){
-        return true;
+    public boolean removeCostumer(String cprNr){
+        if(costumers != null){
+            costumers.remove(cprNr);
+        }else{
+            return false;
+        }
+        return true; 
     }
     
     public Costumer getCostumer(String phoneNumber){  /// skal måske lige fikses
