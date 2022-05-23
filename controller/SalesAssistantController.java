@@ -14,6 +14,7 @@ public class SalesAssistantController {
     
     public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){
         SalesAssistant assistant = new SalesAssistant(name, phoneNumber, address, id, monthlySalary);
+        salesContainer.addSalesAssistant(assistant);
     }
     
     public boolean updateAssistant(){
