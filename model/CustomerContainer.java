@@ -2,7 +2,7 @@ package model;
 import java.util.HashMap;
 
 public class CustomerContainer {
-    private HashMap<String, Costumer> customers;
+    private HashMap<String, Customer> customers;
     private static CustomerContainer instance;
     
     
@@ -17,7 +17,7 @@ public class CustomerContainer {
         return instance;
     }
     
-    private boolean addCustomer(Costumer c, String phoneNumber){
+    private boolean addCustomer(Customer c, String phoneNumber){
         if(instance != null){
             customers.put(phoneNumber, c);
         }else{
@@ -26,18 +26,18 @@ public class CustomerContainer {
         return true;
     }
     
-    public boolean removeCostumer(){
+    public boolean removeCustomer(){
         return true;
     }
     
-    public Costumer getCostumer(String phoneNumber){  /// skal måske lige fikses
-        Costumer costumer = null;
+    public Customer getCustomer(String phoneNumber){  /// skal måske lige fikses
+        Customer customer = null;
         if(customers.containsKey(phoneNumber)){
-            costumer = customers.get(phoneNumber);
+            customer = customers.get(phoneNumber);
         }else{
             return null;
         }
-        return costumer;
+        return customer;
     }
     
     

@@ -1,12 +1,12 @@
 package model;
 
-public class Costumer extends Person{
+public class Customer extends Person{
     private int discount;
     private String group;
     private int credit;
     private String cprNr;
     
-    public Costumer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
+    public Customer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
         super(name, phoneNumber, address);
         this.discount = discount;
         this.group = group;

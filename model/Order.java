@@ -1,18 +1,18 @@
 package model;
 
 public class Order extends Sale{
-    private Costumer costomer;
+    private Customer customer;
     
     private Order(int finalPrice, String date){
         super(finalPrice,date);
     }
     
-    public void setCostumer(Costumer costumer){
-        this.costomer = costomer;
+    public void setCustomer(Customer customer){
+        this.customer = customer;
     }
     
-    public Costumer getCostumer(){
-        return costomer;
+    public Customer getCustomer(){
+        return customer;
     }
     
     
