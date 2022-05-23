@@ -22,11 +22,11 @@ public class Costumer extends Person{
         return group;
     }
     
-    public int credit(){
+    public int getCredit(){
         return credit;
     }
     
-    public String cprNr(){
+    public String getCprNr(){
         return cprNr;
     }
     

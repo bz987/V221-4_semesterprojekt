@@ -14,7 +14,7 @@ public class SalesAssistant extends Person {
         return id;
     }
     
-    private int monthlySalary(){
+    private int getMonthlySalary(){
         return monthlySalary;
     }
     
