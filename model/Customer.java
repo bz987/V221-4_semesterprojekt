@@ -30,19 +30,19 @@ public class Customer extends Person{
         return cprNr;
     }
     
-    public void setDiscount(){
-        this.discount = discount;
+    public void setDiscount(int amountInPercent){
+        this.discount = amountInPercent;
     }
     
-    public void setGroup(){
+    public void setGroup(String group){
         this.group = group;
     }
     
-    public void setCredit(){
-        this.credit = credit;
+    public void setCredit(int amount){
+        this.credit = amount;
     }
     
-    public void setCprNr(){
+    public void setCprNr(String cprNr){
         this.cprNr = cprNr;
     }
 }
