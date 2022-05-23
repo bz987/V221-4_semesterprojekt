@@ -3,13 +3,13 @@ import model.*;
 
 public class SalesAssistantController {
     private SalesAssistantContainer salesAssistantContainer;
-
+    private Person person;
     public SalesAssistantController(){
         salesAssistantContainer = SalesAssistantContainer.getInstance();
     }
 
-    public SalesAssistant findAssistant(){
-        return null;
+    public SalesAssistant findAssistant(String phoneNumber){
+        return salesAssistantContainer.getAssistant(phoneNumber);
     }
 
     public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){ 
@@ -19,10 +19,10 @@ public class SalesAssistantController {
     }
 
     public boolean updateAssistant(){
-        return true;
+        return false;
     }
 
-    public boolean deleteAssistant(){
-        return true;
+    public boolean deleteAssistant(String phoneNumber){
+        return salesAssistantContainer.removeAssistant(phoneNumber);
     }
 }
