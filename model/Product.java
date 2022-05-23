@@ -9,7 +9,7 @@ public class Product {
     private String barcode;
     private String location;
 
-    private Product(String name, int amount,int priceCost, int retailPrice, String category, String barcode, String location){
+    public Product(String name, int amount,int priceCost, int retailPrice, String category, String barcode, String location){
         this.name = name;
         this.amount = amount;
         this.priceCost = priceCost;
@@ -20,27 +20,27 @@ public class Product {
     }
 
     //getters
-    private String getName(){
+    public String getName(){
         return name;
     }
 
-    private int getAmount(){
+    public int getAmount(){
         return amount;
     }
 
-    private int getPriceCost(){
+    public int getPriceCost(){
         return priceCost;
     }
 
-    private int getRetailPrice(){
+    public int getRetailPrice(){
         return retailPrice;
     }
 
-    private String getCategory(){
+    public String getCategory(){
         return category;
     }
     
-    private String getBarcode(){
+    public String getBarcode(){
         return barcode;
     }
     

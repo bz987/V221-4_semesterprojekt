@@ -16,9 +16,9 @@ public class ProductContainer {
         return instance;
     }
     
-    public boolean addProduct(String id, Product p){
+    public boolean addProduct(String barcode, Product p){
         if(instance != null){
-            products.put(id, p);
+            products.put(barcode, p);
         }else{
             return false;
         }
