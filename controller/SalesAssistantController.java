@@ -3,7 +3,7 @@ import model.*;
 
 public class SalesAssistantController {
     private SalesAssistantContainer salesAssistantContainer;
-    private Person person;
+    
     public SalesAssistantController(){
         salesAssistantContainer = SalesAssistantContainer.getInstance();
     }
