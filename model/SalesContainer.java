@@ -59,15 +59,41 @@ public class SalesContainer {
         return true;
     }
     
-    public boolean removeOrder(){
-        return true;
+    public boolean removeOrder(String orderNumber){ //Look at later
+        boolean found = false;
+        int i = 0;
+
+        while(!found && i < orders.size()){
+            if(orders.get(i).getSalesNumber() == orderNumber){
+                found = true;
+                sales.remove(i);
+            }
+            else{
+                i++;
+            }
+        }
+        return found;
     }
     
     public Order getMostRecentOrder(){
         return null;
+        int i = (orders.size()-1);
+        return orders.get(i);
     }
     
     public ArrayList<Order> getOrdersFrom(String PhoneNumber){
+        boolean found = false;
+        int i = 0;
+
+        while(!found && i < orders.size()){
+            if(orders.get(i). == orderNumber){
+                found = true;
+                sales.remove(i);
+            }
+            else{
+                i++;
+            }
+        }
         return null;
     }
 }
