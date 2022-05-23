@@ -39,8 +39,6 @@ public class SalesAssistantContainer {
         SalesAssistant s = null;
         if(salesAssistants.containsKey(phoneNumber)){
             s = salesAssistants.get(phoneNumber);
-        }else{
-            return null;
         }
         return s;
     }
@@ -49,8 +47,6 @@ public class SalesAssistantContainer {
         SalesAssistant s = null;
         if(salesAssistants.containsKey(id)){
             s = salesAssistants.get(id);
-        }else{
-            return null;
         }
         return s;
     }

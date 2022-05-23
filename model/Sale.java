@@ -1,10 +1,11 @@
-package model;
+    package model;
 import java.util.ArrayList;
 
 public class Sale {
     private ArrayList<Product> listOfProducts;
     private int finalPrice;
     private String date;
+    private String salesNumber;
     
     public Sale(int finalPrice, String date){
         listOfProducts = new ArrayList<>();
@@ -26,5 +27,13 @@ public class Sale {
     
     public void setDate(String date){
         this.date = date;
+    }
+    
+    public String getSalesNumber(){
+        return salesNumber;
+    }
+    
+    public void setSalesNumber(String salesNumber){
+        this.salesNumber = salesNumber;
     }
 }

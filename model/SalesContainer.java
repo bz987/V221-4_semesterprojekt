@@ -28,12 +28,25 @@ public class SalesContainer {
         return true;
     }
 
-    public boolean removeSale(){
-        return true;
+    public boolean removeSale(String salesNumber){
+        boolean found = false;
+        int i = 0;
+
+        while(!found && i < sales.size()){
+            if(sales.get(i).getSalesNumber() == salesNumber){
+                found = true;
+                sales.remove(i);
+            }
+            else{
+                i++;
+            }
+        }
+        return found;
     }
 
     public Sale getMostRecentSale(){
-        return null;
+        int i = (sales.size()-1);
+        return sales.get(i);
     }
     
     public boolean addOrder(Order order){
