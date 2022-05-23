@@ -6,6 +6,7 @@ public class SalesContainer {
     private ArrayList<Sale> sales;
     private ArrayList<Order> orders;
     private static SalesContainer instance;
+    private Person person;
 
     private SalesContainer(){
         sales = new ArrayList<>();
@@ -76,24 +77,23 @@ public class SalesContainer {
     }
     
     public Order getMostRecentOrder(){
-        return null;
         int i = (orders.size()-1);
         return orders.get(i);
     }
     
     public ArrayList<Order> getOrdersFrom(String PhoneNumber){
-        boolean found = false;
-        int i = 0;
+        // boolean found = false;
+        // int i = 0;
 
-        while(!found && i < orders.size()){
-            if(orders.get(i). == orderNumber){
-                found = true;
-                sales.remove(i);
-            }
-            else{
-                i++;
-            }
-        }
-        return null;
+        // while(!found && i < orders.size()){
+            // if( == orderNumber){
+                // found = true;
+                // sales.remove(i);
+            // }
+            // else{
+                // i++;
+            // }
+        // }
+        // return null;
     }
 }
