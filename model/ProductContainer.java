@@ -29,8 +29,6 @@ public class ProductContainer {
         Product product = null;
         if(products.containsKey(phoneNumber)){
             product = products.get(phoneNumber);
-        }else{
-            return null;
         }
         return product;
     }

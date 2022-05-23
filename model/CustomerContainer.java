@@ -39,8 +39,6 @@ public class CustomerContainer {
         Customer customer = null;
         if(customers.containsKey(phoneNumber)){
             customer = customers.get(phoneNumber);
-        }else{
-            return null;
         }
         return customer;
     }
