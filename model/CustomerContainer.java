@@ -18,29 +18,32 @@ public class CustomerContainer {
     }
     
     public boolean addCustomer(Customer c, String phoneNumber){
+        boolean added = false;
         if(instance != null){
             customers.put(phoneNumber, c);
-        }else{
-            return false;
+            if (customers.containsKey(phoneNumber)){
+                added = true;
+            }
         }
-        return true;
+        return added;
     }
     
-    public boolean removeCustomer(String cprNr){
+    public boolean removeCustomer(String phoneNumber){
+        boolean removed = false;
         if(customers != null){
-            customers.remove(cprNr);
-        }else{
-            return false;
+            customers.remove(phoneNumber);
+            if (!customers.containsKey(phoneNumber)){
+                removed = true;
+            }
         }
-        return true; 
+        return removed; 
     }
     
-    public Customer getCustomer(String phoneNumber){  /// skal måske lige fikses
+    public Customer getCustomer(String phoneNumber){  /// skal mï¿½ske lige fikses
         Customer customer = null;
         if(customers.containsKey(phoneNumber)){
             customer = customers.get(phoneNumber);
         }
         return customer;
     }
-    
 }

@@ -9,22 +9,26 @@ public class CustomerController {
     }
     
     public Customer findCustomer(String phoneNumber){
-        Customer custom = customer.getCustomer(phoneNumber);
-        return custom;
+        
     }
     
-    public boolean createCustomer(Customer c, String phoneNumber){
-        boolean isAdded = customer.addCustomer(c, phoneNumber);
-        return isAdded;
+    public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
+        Customer c = new Customer(name, phoneNumber, address, discount, group, credit, cprNr);
+        return customer.addCustomer(c, phoneNumber);
     }
     
-    public boolean updateCustomer(){
-        return false;
+    public boolean updateCustomer(String phoneNumber, Customer newData){
+        boolean updated = false;
+        Customer oldData = customer.getCustomer(phoneNumber);
+        if (phoneNumber != newData.getPhoneNumber()){
+            customer.removeCustomer(phoneNumber);
+        }
+        
+        return updated;
     }
     
-    public boolean deleteCustomer(String cprNr){
-        boolean isRemoved = customer.removeCustomer(cprNr);
-        return isRemoved;
+    public boolean deleteCustomer(String phoneNumber){
+        return customer.removeCustomer(phoneNumber);
     }
     
     public boolean setCustomerDiscount(String phonenr,int discount){
