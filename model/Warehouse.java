@@ -3,7 +3,6 @@ package model;
 public class Warehouse {
     private String address;
     
-    
     private Warehouse(String address){
         this.address = address;
     }

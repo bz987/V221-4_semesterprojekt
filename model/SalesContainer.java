@@ -20,13 +20,11 @@ public class SalesContainer {
     }
 
     public boolean addSale(Sale sale){
-
         if(instance != null){
             sales.add(sale);
         }else{
             return false;
         }
-
         return true;
     }
 

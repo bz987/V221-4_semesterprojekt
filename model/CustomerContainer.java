@@ -31,20 +31,13 @@ public class CustomerContainer {
     }
     
     public Costumer getCostumer(String phoneNumber){  /// skal måske lige fikses
-        int i = 0;
-        boolean found = false;
-        Costumer customerFound = null;
-        while(!found && i < customers.size()){
-            if(customers.containsKey(phoneNumber)){
-                customerFound = customers.get(i);
-                found = true;
-                i++;
-            }
-            else{
-                i++;
-            }
+        Costumer costumer = null;
+        if(customers.containsKey(phoneNumber)){
+            costumer = customers.get(phoneNumber);
+        }else{
+            return null;
         }
-        return customerFound;
+        return costumer;
     }
     
     
