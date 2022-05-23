@@ -23,7 +23,6 @@ public class CustomerContainer {
         }else{
             return false;
         }
-        
         return true;
     }
     

@@ -28,10 +28,21 @@ public class ProductContainer {
     }
     
     public Product getProduct(String phoneNumber){
-        return null;
+        Product product = null;
+        if(products.containsKey(phoneNumber)){
+            product = products.get(phoneNumber);
+        }else{
+            return null;
+        }
+        return product;
     }
     
-    public boolean removeProduct(){
-        return true;
+    public boolean removeProduct(String barcode){
+        if(products != null){
+            products.remove(barcode);
+        }else{
+            return false;
+        }
+        return true; 
     }
 }
