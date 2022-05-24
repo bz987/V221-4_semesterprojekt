@@ -13,6 +13,10 @@ public class Sale {
         this.date = date;
     }
     
+    public void addProduct(Product product){
+        listOfProducts.add(product);
+    }
+    
     public int getFinalPrice(){
         return finalPrice;
     }
