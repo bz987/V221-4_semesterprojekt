@@ -37,8 +37,8 @@ public class SalesUI {
                     createProduct();
                     break;
                 case 4:
-                	System.out.println(" Denne er ikke implementeret endnu!");
-                	break;
+                    System.out.println(" Denne er ikke implementeret endnu!");
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -63,51 +63,51 @@ public class SalesUI {
     }
 
     private void createProduct() {
-    	String productName = writeProductName();
-    	int amount = writeProductAmount();
-    	double priceCost = writeProductCost();
-    	double retailPrice = writeProductRetailPrice();
-    	String category = writeProductCategory();
-    	String barcode = writeProductBarcode();
-    	String location = writeProductLocation();
-    	productController.createProduct(1, productName,amount,priceCost,retailPrice,category,barcode,location);
-    	//createProduct(int id,String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
+        String productName = writeProductName();
+        int amount = writeProductAmount();
+        double priceCost = writeProductCost();
+        double retailPrice = writeProductRetailPrice();
+        String category = writeProductCategory();
+        String barcode = writeProductBarcode();
+        String location = writeProductLocation();
+        productController.createProduct(1, productName,amount,priceCost,retailPrice,category,barcode,location);
+        //createProduct(int id,String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
     
     }
-    public String writeProductName() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv produkt navn");
-    	return keyboard.nextLine();
+    private String writeProductName() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt navn");
+        return keyboard.nextLine();
     }
-    public int writeProductAmount() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv antal");
-    	return Integer.parseInt(keyboard.nextLine());
+    private int writeProductAmount() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv antal");
+        return Integer.parseInt(keyboard.nextLine());
     }
-    public double writeProductCost() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv pris");
-    	return Double.parseDouble(keyboard.nextLine());
+    private double writeProductCost() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv pris");
+        return Double.parseDouble(keyboard.nextLine());
     }
-    public double writeProductRetailPrice() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv retail pris");
-    	return Double.parseDouble(keyboard.nextLine());
+    private double writeProductRetailPrice() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv retail pris");
+        return Double.parseDouble(keyboard.nextLine());
     }
-    public String writeProductCategory() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv produkt kategori");
-    	return keyboard.nextLine();
+    private String writeProductCategory() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt kategori");
+        return keyboard.nextLine();
     }
-    public String writeProductBarcode() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv produkt barcode");
-    	return keyboard.nextLine();
+    private String writeProductBarcode() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt barcode");
+        return keyboard.nextLine();
     }
-    public String writeProductLocation() {
-    	Scanner keyboard = new Scanner(System.in);
-    	System.out.println("Skriv produkt placering");
-    	return keyboard.nextLine();
+    private String writeProductLocation() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt placering");
+        return keyboard.nextLine();
     }
     
     private int getIntegerFromUser(Scanner keyboard) {

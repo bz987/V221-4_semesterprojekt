@@ -36,6 +36,7 @@ public class ManagerUI {
                     createCustomer();
                     break;
                 case 4:
+                    findCustomer();
                     break;
                 case 5:
                     findCustomer();

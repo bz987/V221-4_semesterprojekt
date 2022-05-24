@@ -21,7 +21,7 @@ public class CustomerContainer {
     
     public Customer createCustomer(String name, String phoneNumber, String address, int discount, String group, double credit){
         Customer customer = new Customer(name, phoneNumber, address, discount, group, credit);
-        addCustomer(phoneNumber, customer);
+        instance.addCustomer(phoneNumber, customer);
         return customer;
     }
     
