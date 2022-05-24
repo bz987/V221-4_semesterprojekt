@@ -22,7 +22,7 @@ public class ManagerUI {
     private void ManagerMenu() {
         boolean running = true;
         while (running) {
-            int choice = writeLoanMenu();
+            int choice = writeManagerMenu();
             switch (choice) {
                 case 1:
                   System.out.println(" Denne er ikke implementeret endnu!");
@@ -40,7 +40,12 @@ public class ManagerUI {
     private int writeManagerMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Udlånsmenu ******");
-        System.out.println(" (1) Opret lån");
+        System.out.println(" (1) Opret salg");
+        System.out.println(" (2) Opret order");
+        System.out.println(" (3) Opret kunde");
+        System.out.println(" (3) Find product");
+        System.out.println(" (4) Sæt discount");
+        System.out.println(" (5) Sæt kredit");
         System.out.println(" (0) Tilbage");
         System.out.print("\n Vælg:");
         int choice = getIntegerFromUser(keyboard);
