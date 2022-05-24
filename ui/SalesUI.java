@@ -6,7 +6,7 @@ public class SalesUI {
     private SalesController salesController;
     private ProductController productController;
     private CustomerController customerController;
-
+    private SalesAssistantController 
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -15,6 +15,7 @@ public class SalesUI {
         productController = new ProductController();
         salesController = new SalesController();
         customerController = new CustomerController();
+        salesAssistantController = new SalesAssistantController();
     }
 
     public void start() {

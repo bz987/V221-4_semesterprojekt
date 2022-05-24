@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ManagerUI {
     private SalesController salesController;
     private ProductController productController;
-
+    private SalesAssistantController salesAssistantController;
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -13,6 +13,7 @@ public class ManagerUI {
         // initialise instance variables
         productController = new ProductController();
         salesController = new SalesController();
+        salesAssistantController = new SalesAssistantController();
     }
 
     public void start() {
