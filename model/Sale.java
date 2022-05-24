@@ -7,10 +7,11 @@ public class Sale {
     private String date;
     private String salesNumber;
     
-    public Sale(int finalPrice, String date){
+    public Sale(int finalPrice, String date, String salesNumber){
         listOfProducts = new ArrayList<>();
         this.finalPrice = finalPrice;
         this.date = date;
+        this.salesNumber = salesNumber;
     }
     
     public void addProduct(Product product){
