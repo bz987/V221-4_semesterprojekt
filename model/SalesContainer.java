@@ -6,7 +6,7 @@ public class SalesContainer {
     private ArrayList<Sale> sales;
     private ArrayList<Order> orders;
     private static SalesContainer instance;
-    
+
 
     private SalesContainer(){
         sales = new ArrayList<>();
@@ -81,21 +81,13 @@ public class SalesContainer {
         return orders.get(i);
     }
 
-    public ArrayList<Order> getOrdersFrom(String PhoneNumber){
-            
-        
-            // boolean found = false;
-            // int i = 0;
+    public ArrayList<Order> getOrdersFrom(String phoneNumber, Order order){
+        ArrayList<Order> list = new ArrayList<>();
 
-            // while(!found && i < orders.size()){
-            // if( == orderNumber){
-            // found = true;
-            // sales.remove(i);
-            // }
-            // else{
-            // i++;
-            // }
-            // }
-            // return null;
+        if(order.getCustomer().getPhoneNumber() == phoneNumber){
+            list.add(order);
+        }
+
+        return list;
     }
 }
