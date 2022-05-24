@@ -81,7 +81,7 @@ public class SalesContainer {
         return orders.get(i);
     }
 
-    public ArrayList<Order> getOrdersFrom(String phoneNumber, Order order){
+    public ArrayList<Order> getOrdersFrom(String phoneNumber, Order order){ // burde virke
         ArrayList<Order> list = new ArrayList<>();
 
         if(order.getCustomer().getPhoneNumber() == phoneNumber){
