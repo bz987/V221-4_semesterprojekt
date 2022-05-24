@@ -38,7 +38,8 @@ public class ManagerUI {
                 case 4:
                     break;
                 case 5:
-                    
+                    findCustomer();
+                    break;
                 case 0:
                   running = false;
                   break;
@@ -51,13 +52,14 @@ public class ManagerUI {
     
     private int writeManagerMenu() {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("****** Udlånsmenu ******");
+        System.out.println("****** ManagerMenu ******");
         System.out.println(" (1) Opret salg");
         System.out.println(" (2) Opret order");
         System.out.println(" (3) Opret kunde");
-        System.out.println(" (3) Find product");
-        System.out.println(" (4) Sæt discount");
-        System.out.println(" (5) Sæt kredit");
+        System.out.println(" (4) Find product");
+        System.out.println(" (5) Find kunde");
+        System.out.println(" (6) Sæt discount");
+        System.out.println(" (7) Sæt kredit");
         System.out.println(" (0) Tilbage");
         System.out.print("\n Vælg:");
         int choice = getIntegerFromUser(keyboard);
@@ -68,6 +70,7 @@ public class ManagerUI {
         String name = writeCustomerName();
         String PhoneNumber = writeCustomerPhoneNumber();
         String address = writeCustomerAddress();
+        customerContainer.addCustomer(customer, phoneNumber);
     }
     
     private String writeCustomerName(){
@@ -91,16 +94,12 @@ public class ManagerUI {
         return customerAddress;
     }
     
-    private String findCustomer(){
+    private Customer findCustomer(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv telefonnummer");
         String search = keyboard.nextLine();
-        String phoneNumber;
-        if(writeCustomerPhoneNumber().equalsIgnoreCase(phoneNumber)){
-            
-        }
-        
-        return customerContainer.getCustomer(phoneNumber);
+        Customer c = customerContainer.getCustomer(search);
+        return c;
     }
     
     private int getIntegerFromUser(Scanner keyboard) {

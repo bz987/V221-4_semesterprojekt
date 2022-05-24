@@ -10,11 +10,19 @@ public class CustomerContainer {
         customers = new HashMap<>();
     }
     
+    
+    
     public static CustomerContainer getInstance(){
         if(instance == null){
             instance = new CustomerContainer();
         }
         return instance;
+    }
+    
+    public Customer createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit){
+        Customer customer = new Customer(name, phoneNumber, address, discount, group, credit);
+        addCustomer(customer, phoneNumber);
+        return customer;
     }
     
     public boolean addCustomer(Customer c, String phoneNumber){

@@ -4,14 +4,12 @@ public class Customer extends Person{
     private int discount;
     private String group;
     private int credit;
-    private String cprNr;
     
-    public Customer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
+    public Customer(String name, String phoneNumber, String address, int discount, String group, int credit){
         super(name, phoneNumber, address);
         this.discount = discount;
         this.group = group;
         this.credit = credit;
-        this.cprNr = cprNr;
     }
     
     public int getDiscount(){
@@ -26,10 +24,6 @@ public class Customer extends Person{
         return credit;
     }
     
-    public String getCprNr(){
-        return cprNr;
-    }
-    
     public void setDiscount(int amountInPercent){
         this.discount = amountInPercent;
     }
@@ -42,7 +36,4 @@ public class Customer extends Person{
         this.credit = amount;
     }
     
-    public void setCprNr(String cprNr){
-        this.cprNr = cprNr;
-    }
 }
