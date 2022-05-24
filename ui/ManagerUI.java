@@ -1,11 +1,13 @@
 package ui;
 import controller.*;
+import model.*;
 import java.util.Scanner;
 
 public class ManagerUI {
     private SalesController salesController;
     private ProductController productController;
     private SalesAssistantController salesAssistantController;
+    private CustomerContainer customerContainer;
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -14,6 +16,7 @@ public class ManagerUI {
         productController = new ProductController();
         salesController = new SalesController();
         salesAssistantController = new SalesAssistantController();
+        customerContainer.getInstance();
     }
 
     public void start() {
@@ -26,8 +29,16 @@ public class ManagerUI {
             int choice = writeManagerMenu();
             switch (choice) {
                 case 1:
-                  System.out.println(" Denne er ikke implementeret endnu!");
                   break;
+                case 2:
+                    break;
+                case 3:
+                    createCustomer();
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    
                 case 0:
                   running = false;
                   break;
@@ -51,6 +62,45 @@ public class ManagerUI {
         System.out.print("\n Vælg:");
         int choice = getIntegerFromUser(keyboard);
         return choice;
+    }
+    
+    private void createCustomer(){
+        String name = writeCustomerName();
+        String PhoneNumber = writeCustomerPhoneNumber();
+        String address = writeCustomerAddress();
+    }
+    
+    private String writeCustomerName(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundenavn");
+        String customerName = keyboard.nextLine();
+        return customerName;
+    }
+    
+    private String writeCustomerPhoneNumber(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundetelefonnummer");
+        String customerPhoneNumber = keyboard.nextLine();
+        return customerPhoneNumber;
+    }
+    
+    private String writeCustomerAddress(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundeaddresse");
+        String customerAddress = keyboard.nextLine();
+        return customerAddress;
+    }
+    
+    private String findCustomer(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv telefonnummer");
+        String search = keyboard.nextLine();
+        String phoneNumber;
+        if(writeCustomerPhoneNumber().equalsIgnoreCase(phoneNumber)){
+            
+        }
+        
+        return customerContainer.getCustomer(phoneNumber);
     }
     
     private int getIntegerFromUser(Scanner keyboard) {

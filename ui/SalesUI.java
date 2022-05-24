@@ -6,7 +6,7 @@ public class SalesUI {
     private SalesController salesController;
     private ProductController productController;
     private CustomerController customerController;
-    private SalesAssistantController 
+    private SalesAssistantController salesAssistantController;
     /**
      * Constructor for objects of class LoanMenu
      */
