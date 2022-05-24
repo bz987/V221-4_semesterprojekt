@@ -18,11 +18,11 @@ public class SalesAssistant extends Person {
         return monthlySalary;
     }
     
-    public void setId(){
+    public void setId(String id){
         this.id = id;
     }
     
-    public void setMonthlySalary(){
+    public void setMonthlySalary(int monthlySalary){
         this.monthlySalary = monthlySalary;
     }
 }

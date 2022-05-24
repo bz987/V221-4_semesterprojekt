@@ -5,7 +5,6 @@ public class CustomerContainer {
     private HashMap<String, Customer> customers;
     private static CustomerContainer instance;
     
-    
     private CustomerContainer(){
         customers = new HashMap<>();
     }
@@ -39,7 +38,7 @@ public class CustomerContainer {
         return removed; 
     }
     
-    public Customer getCustomer(String phoneNumber){  /// skal m�ske lige fikses
+    public Customer getCustomer(String phoneNumber){  
         Customer customer = null;
         if(customers.containsKey(phoneNumber)){
             customer = customers.get(phoneNumber);

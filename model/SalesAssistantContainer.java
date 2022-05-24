@@ -16,40 +16,40 @@ public class SalesAssistantContainer {
         return instance;
     }
 
-    public boolean addSalesAssistant(String phoneNumber, SalesAssistant assistant){
+    public boolean addSalesAssistant(SalesAssistant assistant, String phoneNumber){
         if(instance != null){
             salesAssistants.put(phoneNumber, assistant);
         }else{
             return false;
         }
-
         return true;
     }
 
     public boolean removeAssistant(String phoneNumber){
+        boolean removed = false;
         if(salesAssistants != null){
             salesAssistants.remove(phoneNumber);
-        }else{
-            return false;
+            if (!salesAssistants.containsKey(phoneNumber)){
+                removed = true;
+            }
         }
-        return true;   
+        return removed; 
     }
 
     public SalesAssistant getAssistant(String phoneNumber){
-        SalesAssistant s = null;
+        SalesAssistant salesAssistant = null;
         if(salesAssistants.containsKey(phoneNumber)){
-            s = salesAssistants.get(phoneNumber);
+            salesAssistant = salesAssistants.get(phoneNumber);
         }
-        return s;
+        return salesAssistant;
     }
 
     public SalesAssistant getAssistant(int id){
-        SalesAssistant s = null;
+        SalesAssistant salesAssistant = null;
         if(salesAssistants.containsKey(id)){
-            s = salesAssistants.get(id);
+            salesAssistant = salesAssistants.get(id);
         }
-        return s;
+        return salesAssistant;
     }
 
-    
 }
