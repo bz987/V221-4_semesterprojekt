@@ -41,7 +41,7 @@ public class CustomerController {
             newData.setCprNr(oldData.getCprNr());
         }
 
-         // since this is only changeable by the manager, this will not change here.
+        // since this is only changeable by the manager, this will not change here.
         newData.setDiscount(oldData.getDiscount());
         newData.setCredit(oldData.getCredit());
 
