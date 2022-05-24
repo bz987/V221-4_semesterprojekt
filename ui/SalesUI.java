@@ -21,11 +21,11 @@ public class SalesUI {
     public void start() {
         productMenu();
     }
-
+    
     private void productMenu() {
         boolean running = true;
         while (running) {
-            int choice = writeLoanMenu();
+            int choice = writeSaleMenu();
             switch (choice) {
                 case 1:
                     System.out.println(" Denne er ikke implementeret endnu!");
@@ -34,8 +34,11 @@ public class SalesUI {
                     System.out.println();
                     break;
                 case 3:
-                    System.out.println();
+                    createProduct();
                     break;
+                case 4:
+                	System.out.println(" Denne er ikke implementeret endnu!");
+                	break;
                 case 0:
                     running = false;
                     break;
@@ -46,21 +49,70 @@ public class SalesUI {
         }
     }
 
-    private int writeLoanMenu() {
+    private int writeSaleMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Salgssmenu ******");
         System.out.println(" (1) Opret salg");
         System.out.println(" (2) Opret order");
-        System.out.println(" (3) Find product");
+        System.out.println(" (3) Opret produkt");
+        System.out.println(" (4) Find product");
         System.out.println(" (0) Tilbage");
-        System.out.print("\n Vælg:");
+        System.out.print("\n Vï¿½lg:");
         int choice = getIntegerFromUser(keyboard);
         return choice;
     }
 
+    private void createProduct() {
+    	String productName = writeProductName();
+    	int amount = writeProductAmount();
+    	double priceCost = writeProductCost();
+    	double retailPrice = writeProductRetailPrice();
+    	String category = writeProductCategory();
+    	String barcode = writeProductBarcode();
+    	String location = writeProductLocation();
+    	productController.createProduct(1, productName,amount,priceCost,retailPrice,category,barcode,location);
+    	//createProduct(int id,String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
+    
+    }
+    public String writeProductName() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv produkt navn");
+    	return keyboard.nextLine();
+    }
+    public int writeProductAmount() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv antal");
+    	return Integer.parseInt(keyboard.nextLine());
+    }
+    public double writeProductCost() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv pris");
+    	return Double.parseDouble(keyboard.nextLine());
+    }
+    public double writeProductRetailPrice() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv retail pris");
+    	return Double.parseDouble(keyboard.nextLine());
+    }
+    public String writeProductCategory() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv produkt kategori");
+    	return keyboard.nextLine();
+    }
+    public String writeProductBarcode() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv produkt barcode");
+    	return keyboard.nextLine();
+    }
+    public String writeProductLocation() {
+    	Scanner keyboard = new Scanner(System.in);
+    	System.out.println("Skriv produkt placering");
+    	return keyboard.nextLine();
+    }
+    
     private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal være et tal - prøv igen");
+            System.out.println("Input skal vï¿½re et tal - prï¿½v igen");
             keyboard.nextLine();
         }
         return keyboard.nextInt();

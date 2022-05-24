@@ -11,7 +11,7 @@ public class ProductController {
         return productContainer.getProduct(barcode);
     }
     
-    public boolean createProduct(int id,String name, int amount,int priceCost, int retailPrice, String category, String barcode, String location){
+    public boolean createProduct(int id,String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
         Product product = new Product(name, amount, priceCost, retailPrice, category, barcode, location);
         productContainer.addProduct(barcode, product);
         return true;

@@ -22,7 +22,7 @@ public class ManagerUI {
     public void start() {
         ManagerMenu();
     }
-
+    
     private void ManagerMenu() {
         boolean running = true;
         while (running) {
@@ -58,10 +58,10 @@ public class ManagerUI {
         System.out.println(" (3) Opret kunde");
         System.out.println(" (4) Find product");
         System.out.println(" (5) Find kunde");
-        System.out.println(" (6) Sæt discount");
-        System.out.println(" (7) Sæt kredit");
+        System.out.println(" (6) Sï¿½t discount");
+        System.out.println(" (7) Sï¿½t kredit");
         System.out.println(" (0) Tilbage");
-        System.out.print("\n Vælg:");
+        System.out.print("\n Vï¿½lg:");
         int choice = getIntegerFromUser(keyboard);
         return choice;
     }
@@ -128,7 +128,7 @@ public class ManagerUI {
 
     private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal være et tal - prøv igen");
+            System.out.println("Input skal vï¿½re et tal - prï¿½v igen");
             keyboard.nextLine();
         }
         return keyboard.nextInt();
