@@ -19,19 +19,19 @@ public class SalesController {
         return true;
     }
     
-    public boolean deleteSale(){
-        return true;
+    public boolean deleteSale(String salesNumber){
+        return salesContainer.removeSale(salesNumber);
     }
     
-    public boolean createorder(){
-        return true;
+    public boolean createorder(Order order){
+        return salesContainer.addOrder(order);
     }
     
         public boolean updateOrder(){
         return true;
     }
     
-    public boolean deleteOrder(){
-        return true;
+    public boolean deleteOrder(String orderNumber){
+        return salesContainer.removeOrder(orderNumber);
     }
 }
