@@ -4,6 +4,7 @@ import java.util.HashMap;
 public class CustomerContainer {
     private HashMap<String, Customer> customers;
     private static CustomerContainer instance;
+    private Customer customer;
     
     private CustomerContainer(){
         customers = new HashMap<>();
@@ -44,5 +45,9 @@ public class CustomerContainer {
             customer = customers.get(phoneNumber);
         }
         return customer;
+    }
+    
+        public int getDiscount(){
+        return customer.getDiscount();
     }
 }

@@ -7,43 +7,43 @@ public class Sale {
     private String date;
     private String salesNumber;
     private Product product;
-    private Customer customer;
+    private CustomerContainer customerContainer;
     
-    public Sale(double finalPrice, String date, String salesNumber){
+    public Sale(String date, String salesNumber){
         listOfProducts = new ArrayList<>();
-        this.finalPrice = finalPrice;
+        customerContainer = customerContainer.getInstance();
         this.date = date;
         this.salesNumber = salesNumber;
     }
-    
+
     public void addProduct(Product product){
         listOfProducts.add(product);
     }
-    
+
     public double getFinalPrice(){
         return finalPrice;
     }
-    
+
     public String getDate(){
         return date;
     }
-    
+
     public void setFinalPrice(double finalPrice){
         this.finalPrice = finalPrice;
     }
-    
+
     public void setDate(String date){
         this.date = date;
     }
-    
+
     public String getSalesNumber(){
         return salesNumber;
     }
-    
+
     public void setSalesNumber(String salesNumber){
         this.salesNumber = salesNumber;
     }
-    
+
     public boolean isAllowance(){
         boolean allowance = false;
         if(product.getPriceCost()*1.1 < product.getRetailPrice()){
@@ -51,11 +51,33 @@ public class Sale {
         }
         return allowance;
     }
-    
-    public void discountCalculator(){
-        if(isAllowance() == true){
-            double discountedPrice = product.getRetailPrice()*(customer.getDiscount()/100);
-            
+
+    // public double discountCalculator(){
+        // if(isAllowance() == true){
+            // double discountedPrice = product.getRetailPrice()*(customerContainer.getDiscount()/100);
+            // return discountedPrice;
+        // }
+        // else{
+
+            // return product.getRetailPrice();
+        // }
+    // }
+
+    public Product finalPriceCalc(String barcode){
+        boolean found = false;
+        int i = 0;
+        Product product = null;
+        while(!found && i < listOfProducts.size()){
+            if(listOfProducts.get(i).getBarcode() == barcode){
+                found = true;
+                double discountedPrice = product.getRetailPrice()*(customerContainer.getDiscount()/100);
+                
+            }
+            else{
+                i++;
+            }
+
         }
+        return product;
     }
 }
