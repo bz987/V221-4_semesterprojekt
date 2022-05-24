@@ -29,7 +29,7 @@ public class ManagerUI {
             int choice = writeManagerMenu();
             switch (choice) {
                 case 1:
-                  break;
+                    break;
                 case 2:
                     break;
                 case 3:
@@ -41,15 +41,15 @@ public class ManagerUI {
                     findCustomer();
                     break;
                 case 0:
-                  running = false;
-                  break;
+                    running = false;
+                    break;
                 default:
-                  System.out.println("En uforklarlig fejl er sket med choice = " + choice);
-                  break;
+                    System.out.println("En uforklarlig fejl er sket med choice = " + choice);
+                    break;
             }
         }
     }
-    
+
     private int writeManagerMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** ManagerMenu ******");
@@ -65,35 +65,59 @@ public class ManagerUI {
         int choice = getIntegerFromUser(keyboard);
         return choice;
     }
-    
+
     private void createCustomer(){
         String name = writeCustomerName();
-        String PhoneNumber = writeCustomerPhoneNumber();
+        String phoneNumber = writeCustomerPhoneNumber();
         String address = writeCustomerAddress();
-        customerContainer.addCustomer(customer, phoneNumber);
+        int discount = writeCustomerDiscount();
+        String group = writeCustomerGroup();
+        double credit = writeCustomerCredit();
+        customerContainer.createCustomer(name, phoneNumber, address, discount, group, credit);
     }
-    
+
     private String writeCustomerName(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundenavn");
         String customerName = keyboard.nextLine();
         return customerName;
     }
-    
+
     private String writeCustomerPhoneNumber(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundetelefonnummer");
         String customerPhoneNumber = keyboard.nextLine();
         return customerPhoneNumber;
     }
-    
+
     private String writeCustomerAddress(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundeaddresse");
         String customerAddress = keyboard.nextLine();
         return customerAddress;
     }
+
+    private int writeCustomerDiscount(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundediscount");
+        int customerDiscount = keyboard.nextInt();
+        return customerDiscount;
+    }
     
+    private String writeCustomerGroup(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundegruppe");
+        String customerGroup = keyboard.nextLine();
+        return customerGroup;
+    }
+    
+    private double writeCustomerCredit(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv kundekredit");
+        double customerCredit = keyboard.nextDouble();
+        return customerCredit;
+    }
+
     private Customer findCustomer(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv telefonnummer");
@@ -101,7 +125,7 @@ public class ManagerUI {
         Customer c = customerContainer.getCustomer(search);
         return c;
     }
-    
+
     private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
             System.out.println("Input skal være et tal - prøv igen");
