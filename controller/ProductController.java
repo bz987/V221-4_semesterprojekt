@@ -21,7 +21,7 @@ public class ProductController {
         return true;
     }
     
-    public boolean deleteProduct(){
-        return true;
+    public boolean deleteProduct(String barcode){
+        return productContainer.removeProduct(barcode);
     }
 }
