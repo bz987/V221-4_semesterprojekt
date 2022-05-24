@@ -64,7 +64,7 @@ public class SalesContainer {
         while(!found && i < orders.size()){
             if(orders.get(i).getSalesNumber() == orderNumber){
                 found = true;
-                sales.remove(i);
+                orders.remove(i);
             }
             else{
                 i++;
