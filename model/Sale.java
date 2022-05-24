@@ -6,6 +6,7 @@ public class Sale {
     private int finalPrice;
     private String date;
     private String salesNumber;
+    private Product product;
     
     public Sale(int finalPrice, String date, String salesNumber){
         listOfProducts = new ArrayList<>();
@@ -41,4 +42,13 @@ public class Sale {
     public void setSalesNumber(String salesNumber){
         this.salesNumber = salesNumber;
     }
+    
+    public boolean isAllowance(){
+        boolean allowance = false;
+        if(product.getPriceCost()*1.1 < product.getRetailPrice()){
+            allowance = true;
+        }
+        return allowance;
+    }
+    
 }
