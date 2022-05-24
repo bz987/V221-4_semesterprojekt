@@ -9,8 +9,8 @@ public class SalesController {
         salesContainer = salesContainer.getInstance();
     }
     
-    public boolean createSale(double finalPrice, String date, String salesNumber){
-        Sale sale = new Sale(finalPrice, date, salesNumber);
+    public boolean createSale(String date, String salesNumber){
+        Sale sale = new Sale(date, salesNumber);
         salesContainer.addSale(sale);
         return true;
     }
