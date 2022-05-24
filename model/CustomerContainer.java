@@ -21,14 +21,14 @@ public class CustomerContainer {
     
     public Customer createCustomer(String name, String phoneNumber, String address, int discount, String group, double credit){
         Customer customer = new Customer(name, phoneNumber, address, discount, group, credit);
-        addCustomer(customer, phoneNumber);
+        addCustomer(phoneNumber, customer);
         return customer;
     }
     
-    public boolean addCustomer(Customer c, String phoneNumber){
+    public boolean addCustomer(String phoneNumber, Customer customer){
         boolean added = false;
         if(instance != null){
-            customers.put(phoneNumber, c);
+            customers.put(phoneNumber, customer);
             if (customers.containsKey(phoneNumber)){
                 added = true;
             }
