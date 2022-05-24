@@ -18,7 +18,15 @@ public class Product {
         this.barcode = barcode;
         this.location = location;
     }
-
+    
+    public boolean isAllowance(){
+        boolean allowance = false;
+        if(priceCost*1.1 < retailPrice){
+            allowance = true;
+        }
+        return allowance;
+    }
+    
     //getters
     public String getName(){
         return name;
