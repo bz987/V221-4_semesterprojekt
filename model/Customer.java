@@ -3,9 +3,9 @@ package model;
 public class Customer extends Person{
     private int discount;
     private String group;
-    private int credit;
+    private double credit;
     
-    public Customer(String name, String phoneNumber, String address, int discount, String group, int credit){
+    public Customer(String name, String phoneNumber, String address, int discount, String group, double credit){
         super(name, phoneNumber, address);
         this.discount = discount;
         this.group = group;
@@ -20,7 +20,7 @@ public class Customer extends Person{
         return group;
     }
     
-    public int getCredit(){
+    public double getCredit(){
         return credit;
     }
     
@@ -32,7 +32,7 @@ public class Customer extends Person{
         this.group = group;
     }
     
-    public void setCredit(int amount){
+    public void setCredit(double amount){
         this.credit = amount;
     }
     
