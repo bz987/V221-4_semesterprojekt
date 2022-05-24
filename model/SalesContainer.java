@@ -53,10 +53,7 @@ public class SalesContainer {
     public boolean addOrder(Order order){
         if(instance != null){
             orders.add(order);
-        }else{
-            return false;
         }
-
         return true;
     }
 
