@@ -12,8 +12,8 @@ public class CustomerController {
         return customer.getCustomer(phoneNumber);        
     }
     
-    public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
-        Customer c = new Customer(name, phoneNumber, address, discount, group, credit, cprNr);
+    public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit){
+        Customer c = new Customer(name, phoneNumber, address, discount, group, credit);
         return customer.addCustomer(c, phoneNumber);
     }
     
@@ -36,9 +36,6 @@ public class CustomerController {
         }
         if (newData.getGroup() == null){
             newData.setGroup(oldData.getGroup());
-        }
-        if (newData.getCprNr() == null){
-            newData.setCprNr(oldData.getCprNr());
         }
 
         // since this is only changeable by the manager, this will not change here.
