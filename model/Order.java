@@ -3,8 +3,8 @@ package model;
 public class Order extends Sale{
     private Customer customer;
     
-    public Order(double finalPrice, String date, String salesNumber){
-        super(finalPrice,date, salesNumber);
+    public Order( String date, String salesNumber){
+        super(date, salesNumber);
     }
     
     public void setCustomer(Customer customer){

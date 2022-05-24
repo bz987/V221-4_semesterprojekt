@@ -8,7 +8,7 @@ public class Sale {
     private String salesNumber;
     private Product product;
     private CustomerContainer customerContainer;
-    
+
     public Sale(String date, String salesNumber){
         listOfProducts = new ArrayList<>();
         customerContainer = customerContainer.getInstance();
@@ -52,25 +52,25 @@ public class Sale {
         return allowance;
     }
 
-    // public double discountCalculator(){
-        // if(isAllowance() == true){
-            // double discountedPrice = product.getRetailPrice()*(customerContainer.getDiscount()/100);
-            // return discountedPrice;
-        // }
-        // else{
+    public double discountCalculator(){
+        if(isAllowance() == true){
+            double discountedPrice = product.getRetailPrice()*(customerContainer.getDiscount()/100);
+            return discountedPrice;
+        }
+        else{
 
-            // return product.getRetailPrice();
-        // }
-    // }
+            return product.getRetailPrice();
+        }
+    }
 
-    public Product finalPriceCalc(String barcode){
+    public double finalPriceCalc(String barcode){
         boolean found = false;
         int i = 0;
-        Product product = null;
+        double discountedPrice;
         while(!found && i < listOfProducts.size()){
             if(listOfProducts.get(i).getBarcode() == barcode){
                 found = true;
-                double discountedPrice = product.getRetailPrice()*(customerContainer.getDiscount()/100);
+                discountCalculator();
                 
             }
             else{
@@ -78,6 +78,6 @@ public class Sale {
             }
 
         }
-        return product;
+        return discountedPrice;
     }
 }
