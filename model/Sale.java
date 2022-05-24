@@ -66,7 +66,7 @@ public class Sale {
     public double finalPriceCalc(String barcode){
         boolean found = false;
         int i = 0;
-        double discountedPrice;
+        double discountedPrice = 0;
         while(!found && i < listOfProducts.size()){
             if(listOfProducts.get(i).getBarcode() == barcode){
                 found = true;
