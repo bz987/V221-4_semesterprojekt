@@ -6,7 +6,7 @@ public class SalesContainer {
     private ArrayList<Sale> sales;
     private ArrayList<Order> orders;
     private static SalesContainer instance;
-    private Person person;
+    
 
     private SalesContainer(){
         sales = new ArrayList<>();
@@ -49,7 +49,7 @@ public class SalesContainer {
         int i = (sales.size()-1);
         return sales.get(i);
     }
-    
+
     public boolean addOrder(Order order){
         if(instance != null){
             orders.add(order);
@@ -59,7 +59,7 @@ public class SalesContainer {
 
         return true;
     }
-    
+
     public boolean removeOrder(String orderNumber){ //Look at later
         boolean found = false;
         int i = 0;
@@ -75,27 +75,27 @@ public class SalesContainer {
         }
         return found;
     }
-    
+
     public Order getMostRecentOrder(){
         int i = (orders.size()-1);
         return orders.get(i);
     }
-    
-    public ArrayList<Order> getOrdersFrom(String PhoneNumber){
-        
-        
-        // boolean found = false;
-        // int i = 0;
 
-        // while(!found && i < orders.size()){
+    public ArrayList<Order> getOrdersFrom(String PhoneNumber){
+            
+        
+            // boolean found = false;
+            // int i = 0;
+
+            // while(!found && i < orders.size()){
             // if( == orderNumber){
-                // found = true;
-                // sales.remove(i);
+            // found = true;
+            // sales.remove(i);
             // }
             // else{
-                // i++;
+            // i++;
             // }
-        // }
-        // return null;
+            // }
+            // return null;
     }
 }
