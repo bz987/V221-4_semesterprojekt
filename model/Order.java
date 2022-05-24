@@ -3,7 +3,7 @@ package model;
 public class Order extends Sale{
     private Customer customer;
     
-    public Order(int finalPrice, String date, String salesNumber){
+    public Order(double finalPrice, String date, String salesNumber){
         super(finalPrice,date, salesNumber);
     }
     

@@ -3,12 +3,13 @@ import java.util.ArrayList;
 
 public class Sale {
     private ArrayList<Product> listOfProducts;
-    private int finalPrice;
+    private double finalPrice;
     private String date;
     private String salesNumber;
     private Product product;
+    private Customer customer;
     
-    public Sale(int finalPrice, String date, String salesNumber){
+    public Sale(double finalPrice, String date, String salesNumber){
         listOfProducts = new ArrayList<>();
         this.finalPrice = finalPrice;
         this.date = date;
@@ -19,7 +20,7 @@ public class Sale {
         listOfProducts.add(product);
     }
     
-    public int getFinalPrice(){
+    public double getFinalPrice(){
         return finalPrice;
     }
     
@@ -27,7 +28,7 @@ public class Sale {
         return date;
     }
     
-    public void setFinalPrice(int finalPrice){
+    public void setFinalPrice(double finalPrice){
         this.finalPrice = finalPrice;
     }
     
@@ -51,4 +52,10 @@ public class Sale {
         return allowance;
     }
     
+    public void discountCalculator(){
+        if(isAllowance() == true){
+            double discountedPrice = product.getRetailPrice()*(customer.getDiscount()/100);
+            
+        }
+    }
 }

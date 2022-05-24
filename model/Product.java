@@ -3,13 +3,13 @@ package model;
 public class Product {
     private String name;
     private int amount;
-    private int priceCost;
-    private int retailPrice;
+    private double priceCost;
+    private double retailPrice;
     private String category;
     private String barcode;
     private String location;
 
-    public Product(String name, int amount,int priceCost, int retailPrice, String category, String barcode, String location){
+    public Product(String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
         this.name = name;
         this.amount = amount;
         this.priceCost = priceCost;
@@ -29,11 +29,11 @@ public class Product {
         return amount;
     }
 
-    public int getPriceCost(){
+    public double getPriceCost(){
         return priceCost;
     }
 
-    public int getRetailPrice(){
+    public double getRetailPrice(){
         return retailPrice;
     }
 
@@ -57,11 +57,11 @@ public class Product {
         this.amount = amount;
     }
     
-    private void setPriceCost(int priceCost){
+    private void setPriceCost(double priceCost){
         this.priceCost = priceCost;
     }
     
-    private void setRetailPrice(int retailPrice){
+    private void setRetailPrice(double retailPrice){
         this.retailPrice = retailPrice;
     }
     
