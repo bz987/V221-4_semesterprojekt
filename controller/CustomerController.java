@@ -9,7 +9,7 @@ public class CustomerController {
     }
     
     public Customer findCustomer(String phoneNumber){
-        
+        return customer.getCustomer(phoneNumber);        
     }
     
     public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit, String cprNr){
