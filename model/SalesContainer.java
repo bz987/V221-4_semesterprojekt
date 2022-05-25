@@ -90,4 +90,7 @@ public class SalesContainer {
     public int getAmountOfSales(){
         return sales.size();
     }
+    public int getAmountOfOrders(){
+        return orders.size();
+    }
 }

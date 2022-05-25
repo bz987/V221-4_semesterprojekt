@@ -3,11 +3,14 @@ import model.*;
 
 public class SalesController {
     private ProductController productController;
+    private CustomerController customerController;
     private SalesContainer salesContainer;
     private Sale sale;
+    private Order order;
     
     public SalesController(){
         productController = new ProductController();
+        customerController = new CustomerController();
         salesContainer = SalesContainer.getInstance();
     }
     
@@ -25,6 +28,9 @@ public class SalesController {
         if (sale != null){
             sale.addProduct(productController.findProduct(barcode));
             success = true;
+        } else if (order != null){
+            order.addProduct(productController.findProduct(barcode));
+            success = true;
         }
         return success;
     }
@@ -37,11 +43,16 @@ public class SalesController {
         return salesContainer.removeSale(salesNumber);
     }
     
-    public boolean createorder(Order order){
-        return salesContainer.addOrder(order);
+    public boolean createOrder(String phoneNumber){
+        boolean success = false;
+        order = new Order(salesContainer.getAmountOfOrders(), customerController.findCustomer(phoneNumber));
+        if (order.getPrice() == 0){
+            success = true;
+        }
+        return success;
     }
     
-        public boolean updateOrder(){
+    public boolean updateOrder(){
         return true;
     }
     
@@ -51,5 +62,8 @@ public class SalesController {
 
     public int getNumberOfSales(){
         return salesContainer.getAmountOfSales();
+    }
+    public int getNumberOfOrders(){
+        return salesContainer.getAmountOfOrders();
     }
 }
