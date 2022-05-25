@@ -51,6 +51,25 @@ public class SalesController {
         }
         return success;
     }
+
+    public boolean finalizeSale(){
+        boolean success = false;
+        salesContainer.addSale(sale);
+        if (salesContainer.getMostRecentSale().getSalesNumber() == sale.getSalesNumber()){
+            sale = null;
+            success = true;
+        }
+        return success;
+    }
+    public boolean finalizeOrder(){
+        boolean success = false;
+        salesContainer.addOrder(order);
+        if (salesContainer.getMostRecentOrder().getSalesNumber() == order.getSalesNumber()){
+            order = null;
+            success = true;
+        }
+        return success;
+    }
     
     public boolean updateOrder(){
         return true;
