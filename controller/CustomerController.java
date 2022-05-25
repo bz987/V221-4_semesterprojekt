@@ -1,11 +1,12 @@
 package controller;
 import model.*;
+import utility.Utility;
 
 public class CustomerController {
     private CustomerContainer customer;
     
     public CustomerController(){
-        customer = customer.getInstance(); 
+        customer = CustomerContainer.getInstance(); 
     }
     
     public Customer findCustomer(String phoneNumber){
@@ -14,7 +15,7 @@ public class CustomerController {
     
     public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit){
         Customer c = new Customer(name, phoneNumber, address, discount, group, credit);
-        return customer.addCustomer(c, phoneNumber);
+        return customer.addCustomer(phoneNumber, c);
     }
     
     public boolean updateCustomer(String phoneNumber, Customer newData){
@@ -42,7 +43,7 @@ public class CustomerController {
         newData.setDiscount(oldData.getDiscount());
         newData.setCredit(oldData.getCredit());
 
-        customer.addCustomer(newData, phoneNumber);
+        customer.addCustomer(phoneNumber, newData);
         if (customer.getCustomer(phoneNumber).equals(newData)){ // quick check to see if the phoneNr now has the newData in the container
             updatedSuccessfully = true;
         }
@@ -54,8 +55,16 @@ public class CustomerController {
         return customer.removeCustomer(phoneNumber);
     }
     
-    public boolean setCustomerDiscount(String phonenr,int discount){
-        return false;
+    public boolean setCustomerDiscount(String phoneNumber, int discount){
+        boolean success = false;
+        discount = Utility.clamp(discount, 10, 30);
+        Customer c = customer.getCustomer(phoneNumber);
+        c.setDiscount(discount);
+        customer.addCustomer(phoneNumber, c);
+        if (customer.getCustomer(phoneNumber).getDiscount() == discount){
+            success = true;
+        }
+        return success;
     }
     
     public boolean setCustomerCredit(String phonenr,int amount){
