@@ -28,15 +28,18 @@ public class SalesUI {
             int choice = writeSaleMenu();
             switch (choice) {
                 case 1:
+                    createSale();
                     System.out.println(" Denne er ikke implementeret endnu!");
                     break;
                 case 2:
+                    createOrder();
                     System.out.println();
                     break;
                 case 3:
                     createProduct();
                     break;
                 case 4:
+                    findProduct();
                     System.out.println(" Denne er ikke implementeret endnu!");
                     break;
                 case 0:
@@ -48,6 +51,8 @@ public class SalesUI {
             }
         }
     }
+
+    
 
     private int writeSaleMenu() {
         Scanner keyboard = new Scanner(System.in);
@@ -61,7 +66,14 @@ public class SalesUI {
         int choice = getIntegerFromUser(keyboard);
         return choice;
     }
+    private void findProduct() {
+    }
 
+    private void createOrder() {
+    }
+
+    private void createSale() {
+    }
     private void createProduct() {
         String productName = writeProductName();
         int amount = writeProductAmount();

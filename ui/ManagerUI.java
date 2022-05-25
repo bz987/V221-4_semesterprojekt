@@ -29,14 +29,16 @@ public class ManagerUI {
             int choice = writeManagerMenu();
             switch (choice) {
                 case 1:
+                    createSale();
                     break;
                 case 2:
+                    createOrder();
                     break;
                 case 3:
                     createCustomer();
                     break;
                 case 4:
-                    
+                    findProduct();
                     break;
                 case 5:
                     findCustomer();
@@ -65,6 +67,15 @@ public class ManagerUI {
         System.out.print("\n V�lg:");
         int choice = getIntegerFromUser(keyboard);
         return choice;
+    }
+
+    private void createOrder() {
+    }
+
+    private void createSale() {
+    }
+
+    private void findProduct() {
     }
 
     private void createCustomer(){
