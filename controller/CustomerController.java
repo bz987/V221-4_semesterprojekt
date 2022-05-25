@@ -13,7 +13,7 @@ public class CustomerController {
         return customer.getCustomer(phoneNumber);        
     }
     
-    public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, int credit){
+    public boolean createCustomer(String name, String phoneNumber, String address, int discount, String group, double credit){
         Customer c = new Customer(name, phoneNumber, address, discount, group, credit);
         return customer.addCustomer(phoneNumber, c);
     }
@@ -67,7 +67,7 @@ public class CustomerController {
         return success;
     }
     
-    public boolean setCustomerCredit(String phonenr,int amount){
+    public boolean setCustomerCredit(String phonenr, double amount){
         return false;
     }
     

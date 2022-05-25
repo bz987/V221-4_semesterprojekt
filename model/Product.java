@@ -8,8 +8,9 @@ public class Product {
     private String category;
     private String barcode;
     private String location;
+    private Warehouse warehouse;
 
-    public Product(String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
+    public Product(String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location, Warehouse warehouse){
         this.name = name;
         this.amount = amount;
         this.priceCost = priceCost;
@@ -17,10 +18,17 @@ public class Product {
         this.category = category;
         this.barcode = barcode;
         this.location = location;
+        this.setWarehouse(warehouse);
     }
     
     
-    //getters
+    //getters & setters
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
     public String getName(){
         return name;
     }
@@ -45,35 +53,35 @@ public class Product {
         return barcode;
     }
     
-    private String getLocation(){
+    public String getLocation(){
         return location;
     }
     
-    private void setName(String name){
+    public void setName(String name){
         this.name = name;
     }
     
-    private void setAmount(int amount){
+    public void setAmount(int amount){
         this.amount = amount;
     }
     
-    private void setPriceCost(double priceCost){
+    public void setPriceCost(double priceCost){
         this.priceCost = priceCost;
     }
     
-    private void setRetailPrice(double retailPrice){
+    public void setRetailPrice(double retailPrice){
         this.retailPrice = retailPrice;
     }
     
-    private void setCategory(String category){
+    public void setCategory(String category){
         this.category = category;
     }
     
-    private void setBarcode(String barcode){
+    public void setBarcode(String barcode){
         this.barcode = barcode;
     }
     
-    private void setLocation(String location){
+    public void setLocation(String location){
         this.location = location;
     }
 }

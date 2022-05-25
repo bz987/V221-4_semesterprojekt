@@ -1,13 +1,13 @@
 package ui;
 import controller.*;
-import model.*;
+//import model.*;
 import java.util.Scanner;
 
 public class ManagerUI {
     private SalesController salesController;
     private ProductController productController;
+    private CustomerController customerController;
     private SalesAssistantController salesAssistantController;
-    private CustomerContainer customerContainer;
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -15,8 +15,8 @@ public class ManagerUI {
         // initialise instance variables
         productController = new ProductController();
         salesController = new SalesController();
+        customerController = new CustomerController();
         salesAssistantController = new SalesAssistantController();
-        customerContainer.getInstance();
     }
 
     public void start() {
@@ -36,7 +36,7 @@ public class ManagerUI {
                     createCustomer();
                     break;
                 case 4:
-                    findCustomer();
+                    
                     break;
                 case 5:
                     findCustomer();
@@ -74,7 +74,7 @@ public class ManagerUI {
         int discount = writeCustomerDiscount();
         String group = writeCustomerGroup();
         double credit = writeCustomerCredit();
-        customerContainer.createCustomer(name, phoneNumber, address, discount, group, credit);
+        customerController.createCustomer(name, phoneNumber, address, discount, group, credit);
     }
 
     private String writeCustomerName(){
@@ -119,17 +119,22 @@ public class ManagerUI {
         return customerCredit;
     }
 
-    private Customer findCustomer(){
+    private void findCustomer(){
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv telefonnummer");
-        String search = keyboard.nextLine();
-        Customer c = customerContainer.getCustomer(search);
-        return c;
+        String phoneNumber = keyboard.nextLine();
+        System.out.println("================Customer=================");
+        System.out.println("Name: "+customerController.findCustomer(phoneNumber).getName());
+        System.out.println("PhoneNr: "+customerController.findCustomer(phoneNumber).getPhoneNumber());
+        System.out.println("Address: "+customerController.findCustomer(phoneNumber).getAddress());
+        System.out.println("Discount: "+customerController.findCustomer(phoneNumber).getDiscount());
+        System.out.println("=========================================");
+
     }
 
     private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal v�re et tal - pr�v igen");
+            System.out.println("Input skal vaere et tal - proev igen");
             keyboard.nextLine();
         }
         return keyboard.nextInt();

@@ -11,7 +11,7 @@ public class Warehouse {
         return address;
     }
     
-    public void setAddress(){
+    public void setAddress(String address){
         this.address = address;
     }
 }

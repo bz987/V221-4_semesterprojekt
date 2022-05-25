@@ -41,4 +41,8 @@ public class ProductContainer {
         }
         return true; 
     }
+
+    public int getAmountOfProducts(){
+        return products.size();
+    }
 }

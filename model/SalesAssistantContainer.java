@@ -43,13 +43,4 @@ public class SalesAssistantContainer {
         }
         return salesAssistant;
     }
-
-    public SalesAssistant getAssistant(int id){
-        SalesAssistant salesAssistant = null;
-        if(salesAssistants.containsKey(id)){
-            salesAssistant = salesAssistants.get(id);
-        }
-        return salesAssistant;
-    }
-
 }

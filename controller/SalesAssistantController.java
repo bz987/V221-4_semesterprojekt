@@ -15,7 +15,7 @@ public class SalesAssistantController {
     public boolean createAssistant(String name, String phoneNumber, String address, String id, int monthlySalary){ 
         SalesAssistant assistant = new SalesAssistant(name, phoneNumber, address, id, monthlySalary);
         salesAssistantContainer.addSalesAssistant(assistant, phoneNumber);
-        return true; // skal nok laves en ændring her
+        return true; // skal nok laves en aendring her
     }
 
     public boolean updateAssistant(String phoneNumber, SalesAssistant newData){

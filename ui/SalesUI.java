@@ -70,49 +70,75 @@ public class SalesUI {
         String category = writeProductCategory();
         String barcode = writeProductBarcode();
         String location = writeProductLocation();
-        productController.createProduct(1, productName,amount,priceCost,retailPrice,category,barcode,location);
-        //createProduct(int id,String name, int amount,double priceCost, double retailPrice, String category, String barcode, String location){
+        String warehouseAddress = writeWarehouseAddress();
+        productController.createProduct(productController.getNewProductNumber(), productName,amount,priceCost,retailPrice,category,barcode,location,warehouseAddress);
     
     }
+    private String writeWarehouseAddress() {
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv produktets lager addresse");
+            return keyboard.nextLine();
+        }
+    }
+
     private String writeProductName() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv produkt navn");
-        return keyboard.nextLine();
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv produkt navn");
+            return keyboard.nextLine();
+        }
     }
     private int writeProductAmount() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv antal");
-        return Integer.parseInt(keyboard.nextLine());
+        int returnValue = 0;
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv antal");
+            returnValue = Integer.parseInt(keyboard.nextLine());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return returnValue;
     }
     private double writeProductCost() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv pris");
-        return Double.parseDouble(keyboard.nextLine());
+        double returnValue = 0;
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv pris");
+            returnValue = Double.parseDouble(keyboard.nextLine());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return returnValue;
     }
     private double writeProductRetailPrice() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv retail pris");
-        return Double.parseDouble(keyboard.nextLine());
+        double returnValue = 0;
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv retail pris");
+            returnValue = Double.parseDouble(keyboard.nextLine());
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return returnValue;
     }
     private String writeProductCategory() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv produkt kategori");
-        return keyboard.nextLine();
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv produkt kategori");
+            return keyboard.nextLine();
+        }
     }
     private String writeProductBarcode() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv produkt barcode");
-        return keyboard.nextLine();
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv produkt barcode");
+            return keyboard.nextLine();
+        }
     }
     private String writeProductLocation() {
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv produkt placering");
-        return keyboard.nextLine();
+        try (Scanner keyboard = new Scanner(System.in)) {
+            System.out.println("Skriv produkt placering");
+            return keyboard.nextLine();
+        }
     }
     
     private int getIntegerFromUser(Scanner keyboard) {
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal v�re et tal - pr�v igen");
+            System.out.println("Input skal vaere et tal - proev igen");
             keyboard.nextLine();
         }
         return keyboard.nextInt();

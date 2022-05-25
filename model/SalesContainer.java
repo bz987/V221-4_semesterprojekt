@@ -1,5 +1,4 @@
 package model;
-import java.util.HashMap;
 import java.util.ArrayList;
 
 public class SalesContainer {
@@ -29,7 +28,7 @@ public class SalesContainer {
         return true;
     }
 
-    public boolean removeSale(String salesNumber){
+    public boolean removeSale(int salesNumber){
         boolean found = false;
         int i = 0;
 
@@ -57,7 +56,7 @@ public class SalesContainer {
         return true;
     }
 
-    public boolean removeOrder(String orderNumber){ //Look at later
+    public boolean removeOrder(int orderNumber){ //Look at later
         boolean found = false;
         int i = 0;
 
@@ -86,5 +85,9 @@ public class SalesContainer {
         }
 
         return list;
+    }
+
+    public int getAmountOfSales(){
+        return sales.size();
     }
 }
