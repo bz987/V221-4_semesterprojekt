@@ -6,7 +6,8 @@ public class SalesUI {
     private SalesController salesController;
     private ProductController productController;
     private CustomerController customerController;
-    private SalesAssistantController salesAssistantController;
+    private SalesAssistantController SalesAssistantController;
+    private String SalesAssistantPhoneNumber = "";
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -15,7 +16,7 @@ public class SalesUI {
         productController = new ProductController();
         salesController = new SalesController();
         customerController = new CustomerController();
-        salesAssistantController = new SalesAssistantController();
+        SalesAssistantController = new SalesAssistantController();
     }
 
     public void start() {
@@ -42,6 +43,13 @@ public class SalesUI {
                     findProduct();
                     System.out.println(" Denne er ikke implementeret endnu!");
                     break;
+                case 5:
+                    registerSalesAssistant();
+                    break;
+                case 6:
+                    unregisterSalesAssistant();
+                    System.out.println("");
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -52,8 +60,6 @@ public class SalesUI {
         }
     }
 
-    
-
     private int writeSaleMenu() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("****** Salgssmenu ******");
@@ -61,9 +67,12 @@ public class SalesUI {
         System.out.println(" (2) Opret order");
         System.out.println(" (3) Opret produkt");
         System.out.println(" (4) Find product");
+        System.out.println(" (5) Login som salgsassistent");
+        System.out.println(" (6) Log af som salgsassistent");
         System.out.println(" (0) Tilbage");
-        System.out.print("\n V�lg:");
+        System.out.print("\n Vælg:");
         int choice = getIntegerFromUser(keyboard);
+        keyboard.close();
         return choice;
     }
     private void findProduct() {
@@ -87,72 +96,99 @@ public class SalesUI {
     
     }
     private String writeWarehouseAddress() {
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv produktets lager addresse");
-            return keyboard.nextLine();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produktets lager addresse");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
 
     private String writeProductName() {
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv produkt navn");
-            return keyboard.nextLine();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt navn");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
     private int writeProductAmount() {
         int returnValue = 0;
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv antal");
-            returnValue = Integer.parseInt(keyboard.nextLine());
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv antal");
+        returnValue = Integer.parseInt(keyboard.nextLine());
+        keyboard.close();
         return returnValue;
     }
     private double writeProductCost() {
         double returnValue = 0;
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv pris");
-            returnValue = Double.parseDouble(keyboard.nextLine());
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv pris");
+        returnValue = Double.parseDouble(keyboard.nextLine());
+        keyboard.close();
         return returnValue;
     }
     private double writeProductRetailPrice() {
         double returnValue = 0;
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv retail pris");
-            returnValue = Double.parseDouble(keyboard.nextLine());
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv retail pris");
+        returnValue = Double.parseDouble(keyboard.nextLine());
+        keyboard.close();
         return returnValue;
     }
     private String writeProductCategory() {
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv produkt kategori");
-            return keyboard.nextLine();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt kategori");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
     private String writeProductBarcode() {
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv produkt barcode");
-            return keyboard.nextLine();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt barcode");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
     private String writeProductLocation() {
-        try (Scanner keyboard = new Scanner(System.in)) {
-            System.out.println("Skriv produkt placering");
-            return keyboard.nextLine();
-        }
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt placering");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
     
+    private void registerSalesAssistant() {
+        String phoneNumber = writeSalesAssistantPhoneNumber();
+        if (SalesAssistantController.findAssistant(phoneNumber) != null){
+            SalesAssistantPhoneNumber = phoneNumber;
+            System.out.println("Salgsassistent er blevet registreret");
+        } else {
+            System.out.println("Kunne ikke finde salgsassistent tilhørende "+phoneNumber);
+        }
+    }
+    private void unregisterSalesAssistant() {
+        if (!SalesAssistantPhoneNumber.isEmpty()){
+            SalesAssistantPhoneNumber = "";
+            System.out.println("Fjernede den registrerede salgsassistent");
+        } else {
+            System.out.println("Der er ikke registreret nogen salgsassistent");
+        }
+    }
+
+    private String writeSalesAssistantPhoneNumber(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv dit telefonnummer");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
+    }
+
     private int getIntegerFromUser(Scanner keyboard) {
+        int nextInt = -1;
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal vaere et tal - proev igen");
+            System.out.println("Input skal vaere et tal - prøv igen");
             keyboard.nextLine();
         }
-        return keyboard.nextInt();
+        nextInt = keyboard.nextInt();
+        return nextInt;
     }
 }
