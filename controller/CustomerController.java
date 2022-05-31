@@ -28,7 +28,7 @@ public class CustomerController {
         }
         if (newData.getPhoneNumber() == null){
             newData.setPhoneNumber(oldData.getPhoneNumber());
-        } else { // If a new phoneNr is found, remove the customer entry in the list and set phoneNr to the new one.
+        } else { // If a new phoneNumber is found, remove the customer entry in the list and set phoneNumber to the new one.
             customer.removeCustomer(phoneNumber);
             phoneNumber = newData.getPhoneNumber();
         }
@@ -44,7 +44,7 @@ public class CustomerController {
         newData.setCredit(oldData.getCredit());
 
         customer.addCustomer(phoneNumber, newData);
-        if (customer.getCustomer(phoneNumber).equals(newData)){ // quick check to see if the phoneNr now has the newData in the container
+        if (customer.getCustomer(phoneNumber).equals(newData)){ // quick check to see if the phoneNumber now has the newData in the container
             updatedSuccessfully = true;
         }
 
@@ -67,7 +67,7 @@ public class CustomerController {
         return success;
     }
     
-    public boolean setCustomerCredit(String phonenr, double amount){
+    public boolean setCustomerCredit(String phoneNumber, double amount){
         return false;
     }
     

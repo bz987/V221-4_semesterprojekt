@@ -61,11 +61,12 @@ public class ManagerUI {
         System.out.println(" (3) Opret kunde");
         System.out.println(" (4) Find product");
         System.out.println(" (5) Find kunde");
-        System.out.println(" (6) S�t discount");
-        System.out.println(" (7) S�t kredit");
+        System.out.println(" (6) Sæt discount");
+        System.out.println(" (7) Sæt kredit");
         System.out.println(" (0) Tilbage");
-        System.out.print("\n V�lg:");
+        System.out.print("\n Vælg:");
         int choice = getIntegerFromUser(keyboard);
+        keyboard.close();
         return choice;
     }
 
@@ -92,6 +93,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundenavn");
         String customerName = keyboard.nextLine();
+        keyboard.close();
         return customerName;
     }
 
@@ -99,6 +101,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundetelefonnummer");
         String customerPhoneNumber = keyboard.nextLine();
+        keyboard.close();
         return customerPhoneNumber;
     }
 
@@ -106,6 +109,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundeaddresse");
         String customerAddress = keyboard.nextLine();
+        keyboard.close();
         return customerAddress;
     }
 
@@ -113,6 +117,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundediscount");
         int customerDiscount = keyboard.nextInt();
+        keyboard.close();
         return customerDiscount;
     }
     
@@ -120,6 +125,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundegruppe");
         String customerGroup = keyboard.nextLine();
+        keyboard.close();
         return customerGroup;
     }
     
@@ -127,6 +133,7 @@ public class ManagerUI {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Skriv kundekredit");
         double customerCredit = keyboard.nextDouble();
+        keyboard.close();
         return customerCredit;
     }
 
@@ -144,10 +151,12 @@ public class ManagerUI {
     }
 
     private int getIntegerFromUser(Scanner keyboard) {
+        int nextInt = -1;
         while (!keyboard.hasNextInt()) {
-            System.out.println("Input skal vaere et tal - proev igen");
+            System.out.println("Input skal vaere et tal - prøv igen");
             keyboard.nextLine();
         }
-        return keyboard.nextInt();
+        nextInt = keyboard.nextInt();
+        return nextInt;
     }
 }

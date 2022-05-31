@@ -25,10 +25,10 @@ public class ProductContainer {
         return true;
     }
     
-    public Product getProduct(String phoneNumber){
+    public Product getProduct(String barcode){
         Product product = null;
-        if(products.containsKey(phoneNumber)){
-            product = products.get(phoneNumber);
+        if(products.containsKey(barcode)){
+            product = products.get(barcode);
         }
         return product;
     }
