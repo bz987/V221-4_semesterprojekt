@@ -7,7 +7,7 @@ public class ManagerUI {
     private SalesController salesController;
     private ProductController productController;
     private CustomerController customerController;
-    private SalesAssistantController salesAssistantController;
+    private SalesAssistantController salesAssistantController; // TODO: Ikke implementeret
     /**
      * Constructor for objects of class LoanMenu
      */
@@ -70,13 +70,46 @@ public class ManagerUI {
         return choice;
     }
 
+    private void findProduct() {
+        String barcode = writeProductBarcode();
+        if (salesController.addProduct(barcode)){
+            System.out.println("Added: "+productController.findProduct(barcode).getName()+" to the reciept");
+        } else {
+            System.out.println("Alert: Opret et salg eller en order først!");
+        }
+    }
+
     private void createOrder() {
+        String phoneNumber = writePhoneNumber();
+        if (salesController.createOrder(phoneNumber)){
+            System.out.println("En order er blevet registreret under navnet "+customerController.findCustomer(phoneNumber).getName());
+        } else {
+            System.out.println("Alert: Kunne ikke oprette ordren!");
+        }
     }
 
     private void createSale() {
+        if (salesController.createSale()){
+            System.out.println("Et salg er blevet oprettet under salgs nummeret "+ salesController.getNumberOfSales()+1);
+        } else {
+            System.out.println("Alert: Kunne ikke oprette et salgs!");
+        }
     }
 
-    private void findProduct() {
+    private String writePhoneNumber(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv et telefonnummer");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
+    }
+
+    private String writeProductBarcode() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Skriv produkt barcode");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        return input;
     }
 
     private void createCustomer(){
@@ -147,7 +180,7 @@ public class ManagerUI {
         System.out.println("Address: "+customerController.findCustomer(phoneNumber).getAddress());
         System.out.println("Discount: "+customerController.findCustomer(phoneNumber).getDiscount());
         System.out.println("=========================================");
-
+        keyboard.close();
     }
 
     private int getIntegerFromUser(Scanner keyboard) {

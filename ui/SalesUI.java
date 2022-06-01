@@ -76,13 +76,31 @@ public class SalesUI {
         return choice;
     }
     private void findProduct() {
+        String barcode = writeProductBarcode();
+        if (salesController.addProduct(barcode)){
+            System.out.println("Added: "+productController.findProduct(barcode).getName()+" to the reciept");
+        } else {
+            System.out.println("Alert: Opret et salg eller en order først!");
+        }
     }
 
     private void createOrder() {
+        String phoneNumber = writePhoneNumber();
+        if (salesController.createOrder(phoneNumber)){
+            System.out.println("En order er blevet registreret under navnet "+customerController.findCustomer(phoneNumber).getName());
+        } else {
+            System.out.println("Alert: Kunne ikke oprette ordren!");
+        }
     }
 
     private void createSale() {
+        if (salesController.createSale()){
+            System.out.println("Et salg er blevet oprettet under salgs nummeret "+ salesController.getNumberOfSales()+1);
+        } else {
+            System.out.println("Alert: Kunne ikke oprette et salgs!");
+        }
     }
+
     private void createProduct() {
         String productName = writeProductName();
         int amount = writeProductAmount();
@@ -157,7 +175,7 @@ public class SalesUI {
     }
     
     private void registerSalesAssistant() {
-        String phoneNumber = writeSalesAssistantPhoneNumber();
+        String phoneNumber = writePhoneNumber();
         if (SalesAssistantController.findAssistant(phoneNumber) != null){
             SalesAssistantPhoneNumber = phoneNumber;
             System.out.println("Salgsassistent er blevet registreret");
@@ -174,9 +192,9 @@ public class SalesUI {
         }
     }
 
-    private String writeSalesAssistantPhoneNumber(){
+    private String writePhoneNumber(){
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Skriv dit telefonnummer");
+        System.out.println("Skriv et telefonnummer");
         String input = keyboard.nextLine();
         keyboard.close();
         return input;
