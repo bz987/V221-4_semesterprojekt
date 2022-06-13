@@ -30,6 +30,7 @@ public class SalesUI {
             switch (choice) {
                 case 1:
                     createSale();
+                    System.out.println(" Denne er ikke implementeret endnu!");
                     break;
                 case 2:
                     createOrder();
@@ -40,13 +41,12 @@ public class SalesUI {
                     break;
                 case 4:
                     findProduct();
+                    System.out.println(" Denne er ikke implementeret endnu!");
                     break;
                 case 5:
-                    printReciept();
-                case 6:
                     registerSalesAssistant();
                     break;
-                case 7:
+                case 6:
                     unregisterSalesAssistant();
                     System.out.println("");
                     break;
@@ -67,9 +67,8 @@ public class SalesUI {
         System.out.println(" (2) Opret order");
         System.out.println(" (3) Opret produkt");
         System.out.println(" (4) Find product");
-        System.out.println(" (5) Færdiggør kvittering");
-        System.out.println(" (6) Login som salgsassistent");
-        System.out.println(" (7) Log af som salgsassistent");
+        System.out.println(" (5) Login som salgsassistent");
+        System.out.println(" (6) Log af som salgsassistent");
         System.out.println(" (0) Tilbage");
         System.out.print("\n VÃ¦lg:");
         int choice = getIntegerFromUser(keyboard);
@@ -199,21 +198,6 @@ public class SalesUI {
         String input = keyboard.nextLine();
         keyboard.close();
         return input;
-    }
-    private void printReciept(){
-        if(salesController.finalizeSale()){
-            if(!SalesAssistantPhoneNumber.isEmpty()){
-                SalesAssistantController.findAssistant(SalesAssistantPhoneNumber).addSale();
-                System.out.println("Salget er færdiggjort");
-            }
-        }
-        else if(salesController.finalizeOrder()){
-            if(!SalesAssistantPhoneNumber.isEmpty()){
-                SalesAssistantController.findAssistant(SalesAssistantPhoneNumber).addSale();
-                System.out.println("Ordren er færdiggjort");
-            }
-        }
-        
     }
 
     private int getIntegerFromUser(Scanner keyboard) {
