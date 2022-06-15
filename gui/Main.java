@@ -8,6 +8,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
+
+import controller.CustomerController;
+import controller.ProductController;
+import ctr.Controller;
+
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import java.awt.GridBagLayout;
@@ -22,6 +27,8 @@ import java.awt.event.MouseEvent;
 public class Main {
 
 	private JFrame frmVlgEnMenu;
+	private ProductController productController;
+	private CustomerController customerController;
 
 	/**
 	 * Launch the application.
@@ -79,6 +86,14 @@ public class Main {
 		
 		JButton btnNewButton_1 = new JButton("Lager");
 		frmVlgEnMenu.getContentPane().add(btnNewButton_1);
+		
+		init();
+	}
+
+	private void init() {
+		productController = new ProductController();
+		customerController = new CustomerController();
+		
 	}
 
 	private void OpenSalesMenu(MouseEvent e) {
@@ -86,6 +101,7 @@ public class Main {
 		salesMenu.setModalityType(ModalityType.APPLICATION_MODAL);
 		salesMenu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		salesMenu.setVisible(true);
+
 		
 		
 		

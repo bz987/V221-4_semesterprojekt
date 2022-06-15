@@ -3,6 +3,9 @@ package gui;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+
+import controller.ProductController;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -12,23 +15,8 @@ import java.awt.event.MouseEvent;
 public class SalesMenu {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SalesMenu window = new SalesMenu();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	private ProductController productController;
+	
 	/**
 	 * Create the application.
 	 */
@@ -39,7 +27,7 @@ public class SalesMenu {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(ProductController productController) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,53 +37,96 @@ public class SalesMenu {
 		CreateSale.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				createSale();
 			}
 		});
-		CreateSale.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		CreateSale.setBounds(10, 117, 156, 29);
+		CreateSale.setBounds(10, 25, 132, 29);
 		frame.getContentPane().add(CreateSale);
 		
 		JButton FindProduct = new JButton("Find produkt");
 		FindProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				findProduct();
 			}
 		});
-		FindProduct.setBounds(10, 78, 156, 29);
+		FindProduct.setBounds(152, 25, 122, 29);
 		frame.getContentPane().add(FindProduct);
 		
 		JButton CreateOrder = new JButton("Opret ordre");
 		CreateOrder.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				createOrder();
 			}
 		});
-		CreateOrder.setBounds(10, 42, 156, 29);
+		CreateOrder.setBounds(284, 25, 132, 29);
 		frame.getContentPane().add(CreateOrder);
 		
 		JButton CreateProduct = new JButton("Opret produkt");
 		CreateProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				CreateProduct();
 			}
 		});
-		CreateProduct.setBounds(10, 195, 156, 29);
+		CreateProduct.setBounds(10, 94, 156, 29);
 		frame.getContentPane().add(CreateProduct);
 		
 		JButton CreateCustomer = new JButton("Opret kunde");
-		CreateCustomer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		CreateCustomer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				createCustomer();
 			}
 		});
-		CreateCustomer.setBounds(10, 159, 155, 29);
+		CreateCustomer.setBounds(261, 94, 155, 29);
 		frame.getContentPane().add(CreateCustomer);
+		
+		JButton LogOut = new JButton("Log af");
+		LogOut.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				LogOut();
+			}
+		});
+		LogOut.setBounds(312, 197, 89, 23);
+		frame.getContentPane().add(LogOut);
+		
+		init();
+	}
+
+	private void init() {
+		this.productController = new ProductController();
+	}
+
+	private void createSale() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void findProduct() {
+		
+	}
+
+	private void createOrder() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void CreateProduct() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void createCustomer() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	protected void LogOut() {
+		frame.setVisible(false);
+		frame.dispose();
+		
 	}
 }

@@ -70,5 +70,6 @@ public class FindProduct extends JDialog {
 		this.productController = productController;
 		this.customerController = customerController;
 
+		
 	}
 }
