@@ -16,6 +16,8 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 import java.awt.Window.Type;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Main {
 
@@ -56,6 +58,12 @@ public class Main {
 		frmVlgEnMenu.getContentPane().setLayout(new GridLayout(0, 3, 0, 0));
 		
 		JButton btnSalg = new JButton("Salg");
+		btnSalg.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				OpenSalesMenu();
+			}
+		});
 		btnSalg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -71,6 +79,11 @@ public class Main {
 		
 		JButton btnNewButton_1 = new JButton("Lager");
 		frmVlgEnMenu.getContentPane().add(btnNewButton_1);
+	}
+
+	private void OpenSalesMenu() {
+		
+		
 	}
 
 }
