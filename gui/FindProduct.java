@@ -8,27 +8,21 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.CustomerController;
+import controller.ProductController;
+import ctr.Controller;
+
 public class FindProduct extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	private ProductController productController;
+	private CustomerController customerController;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			FindProduct dialog = new FindProduct();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * Create the dialog.
 	 */
-	public FindProduct() {
+	public FindProduct(ProductController productController, CustomerController customerController) {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setLayout(new FlowLayout());
@@ -50,6 +44,12 @@ public class FindProduct extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		init(productController, customerController);
 	}
+	
+	private void init(ProductController productController, CustomerController customerController) {
+		this.productController = productController;
+		this.customerController = customerController;
 
+	}
 }

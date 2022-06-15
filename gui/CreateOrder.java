@@ -8,9 +8,14 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controller.CustomerController;
+import controller.ProductController;
+
 public class CreateOrder extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
+	private ProductController productController;
+	private CustomerController customerController;
 
 	/**
 	 * Launch the application.

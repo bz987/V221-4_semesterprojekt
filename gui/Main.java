@@ -81,7 +81,13 @@ public class Main {
 		frmVlgEnMenu.getContentPane().add(btnNewButton_1);
 	}
 
-	private void OpenSalesMenu() {
+	private void OpenSalesMenu(MouseEvent e) {
+		SalesMenu salesMenu = new SalesMenu();
+		salesMenu.setModalityType(ModalityType.APPLICATION_MODAL);
+		salesMenu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		salesMenu.setVisible(true);
+		
+		
 		
 		
 	}
