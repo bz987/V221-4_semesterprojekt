@@ -37,7 +37,7 @@ public class SalesMenu extends JFrame {
 		CreateSale.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				createSale();
+				openCreateSale();
 			}
 		});
 		CreateSale.setBounds(10, 25, 132, 29);
@@ -47,7 +47,7 @@ public class SalesMenu extends JFrame {
 		FindProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				findProduct();
+				openFindProduct();
 			}
 		});
 		FindProduct.setBounds(152, 25, 122, 29);
@@ -57,7 +57,7 @@ public class SalesMenu extends JFrame {
 		CreateOrder.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				createOrder();
+				openCreateOrder();
 			}
 		});
 		CreateOrder.setBounds(284, 25, 132, 29);
@@ -67,7 +67,7 @@ public class SalesMenu extends JFrame {
 		CreateProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				CreateProduct();
+				openCreateProduct();
 			}
 		});
 		CreateProduct.setBounds(10, 94, 156, 29);
@@ -77,7 +77,7 @@ public class SalesMenu extends JFrame {
 		CreateCustomer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				createCustomer();
+				openCreateCustomer();
 			}
 		});
 		CreateCustomer.setBounds(261, 94, 155, 29);
@@ -100,26 +100,27 @@ public class SalesMenu extends JFrame {
 		this.productController = new ProductController();
 	}
 
-	private void createSale() {
+	private void openCreateSale() {
+		
+		
+	}
+
+	private void openFindProduct() {
+		FindProduct findProduct = new FindProduct();
+		findProduct.setVisible(true);
+	}
+
+	private void openCreateOrder() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void findProduct() {
-		
-	}
-
-	private void createOrder() {
+	private void openCreateProduct() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void CreateProduct() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void createCustomer() {
+	private void openCreateCustomer() {
 		// TODO Auto-generated method stub
 		
 	}
