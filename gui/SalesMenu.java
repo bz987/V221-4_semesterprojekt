@@ -45,57 +45,57 @@ public class SalesMenu {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Opret salg");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton CreateSale = new JButton("Opret salg");
+		CreateSale.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton.addActionListener(new ActionListener() {
+		CreateSale.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(10, 117, 156, 29);
-		frame.getContentPane().add(btnNewButton);
+		CreateSale.setBounds(10, 117, 156, 29);
+		frame.getContentPane().add(CreateSale);
 		
-		JButton btnNewButton_1 = new JButton("Find produkt");
-		btnNewButton_1.addMouseListener(new MouseAdapter() {
+		JButton FindProduct = new JButton("Find produkt");
+		FindProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton_1.setBounds(10, 78, 156, 29);
-		frame.getContentPane().add(btnNewButton_1);
+		FindProduct.setBounds(10, 78, 156, 29);
+		frame.getContentPane().add(FindProduct);
 		
-		JButton btnNewButton_2 = new JButton("Opret ordre");
-		btnNewButton_2.addMouseListener(new MouseAdapter() {
+		JButton CreateOrder = new JButton("Opret ordre");
+		CreateOrder.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(10, 42, 156, 29);
-		frame.getContentPane().add(btnNewButton_2);
+		CreateOrder.setBounds(10, 42, 156, 29);
+		frame.getContentPane().add(CreateOrder);
 		
-		JButton btnNewButton_3 = new JButton("Opret produkt");
-		btnNewButton_3.addMouseListener(new MouseAdapter() {
+		JButton CreateProduct = new JButton("Opret produkt");
+		CreateProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton_3.setBounds(10, 195, 156, 29);
-		frame.getContentPane().add(btnNewButton_3);
+		CreateProduct.setBounds(10, 195, 156, 29);
+		frame.getContentPane().add(CreateProduct);
 		
-		JButton btnNewButton_4 = new JButton("Opret kunde");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton CreateCustomer = new JButton("Opret kunde");
+		CreateCustomer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_4.addMouseListener(new MouseAdapter() {
+		CreateCustomer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			}
 		});
-		btnNewButton_4.setBounds(10, 159, 155, 29);
-		frame.getContentPane().add(btnNewButton_4);
+		CreateCustomer.setBounds(10, 159, 155, 29);
+		frame.getContentPane().add(CreateCustomer);
 	}
 }
