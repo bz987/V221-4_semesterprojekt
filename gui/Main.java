@@ -20,11 +20,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.Window.Type;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class Main {
+public class Main extends JFrame {
 
 	private JFrame frmVlgEnMenu;
 	private ProductController productController;
@@ -90,22 +91,19 @@ public class Main {
 		init();
 	}
 
+	private void OpenSalesMenu() {
+		SalesMenu salesMenu = new SalesMenu();
+		salesMenu.setVisible(true);
+		
+	}
+
 	private void init() {
 		productController = new ProductController();
 		customerController = new CustomerController();
 		
 	}
 
-	private void OpenSalesMenu(MouseEvent e) {
-		SalesMenu salesMenu = new SalesMenu();
-		salesMenu.setModalityType(ModalityType.APPLICATION_MODAL);
-		salesMenu.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		salesMenu.setVisible(true);
-
 		
-		
-		
-		
-	}
-
 }
+
+

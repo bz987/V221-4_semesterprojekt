@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class SalesMenu {
+public class SalesMenu extends JFrame {
 
 	private JFrame frame;
 	private ProductController productController;
@@ -21,7 +21,7 @@ public class SalesMenu {
 	 * Create the application.
 	 */
 	public SalesMenu() {
-		initialize();
+		initialize(productController);
 	}
 
 	/**
