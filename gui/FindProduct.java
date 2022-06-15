@@ -13,19 +13,20 @@ import controller.ProductController;
 import ctr.Controller;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class FindProduct extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private ProductController productController;
-	private CustomerController customerController;
 	private JTextField textField;
 
 
 	/**
 	 * Create the dialog.
 	 */
-	public FindProduct(ProductController productController, CustomerController customerController) {
+	public FindProduct(ProductController productController) {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 436, 230);
@@ -44,6 +45,7 @@ public class FindProduct extends JDialog {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Lokationen er:");
+		//lblNewLabel_1.setText("Lokationen er: ");
 		lblNewLabel_1.setBounds(10, 123, 111, 26);
 		contentPanel.add(lblNewLabel_1);
 		{
@@ -53,22 +55,45 @@ public class FindProduct extends JDialog {
 			getContentPane().add(buttonPane);
 			{
 				JButton okButton = new JButton("V\u00E6lg produkt");
+				okButton.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						getTextFieldData();
+					}
+				});
+				
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
 				JButton cancelButton = new JButton("Tilbage");
+				cancelButton.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						close();
+					}
+				});
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
 			}
 		}
-		init(productController, customerController);
+		init(productController);
 	}
 	
-	private void init(ProductController productController, CustomerController customerController) {
+	private void getTextFieldData() {
+		
+		
+	}
+
+	private void close() {
+		contentPanel.setVisible(false);
+		dispose();
+		
+	}
+
+	private void init(ProductController productController) {
 		this.productController = productController;
-		this.customerController = customerController;
 
 		
 	}

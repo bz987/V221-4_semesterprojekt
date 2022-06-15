@@ -92,7 +92,7 @@ public class Main extends JFrame {
 	}
 
 	private void OpenSalesMenu() {
-		SalesMenu salesMenu = new SalesMenu();
+		SalesMenu salesMenu = new SalesMenu(productController);
 		salesMenu.setVisible(true);
 		
 	}

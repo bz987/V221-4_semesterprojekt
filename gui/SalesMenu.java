@@ -1,133 +1,133 @@
 package gui;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import controller.ProductController;
 
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class SalesMenu extends JFrame {
 
-	private JFrame frame;
+	private JPanel contentPane;
 	private ProductController productController;
-	
-	/**
-	 * Create the application.
-	 */
-	public SalesMenu() {
-		initialize(productController);
-	}
+
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Create the frame.
 	 */
-	private void initialize(ProductController productController) {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+	public SalesMenu(ProductController productController) {
+		setTitle("Salgsmenu");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		JButton CreateSale = new JButton("Opret salg");
-		CreateSale.addMouseListener(new MouseAdapter() {
+		JButton findProduct = new JButton("Find Produkt");
+		findProduct.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				FindProduct();
+			}
+		});
+		findProduct.setBounds(145, 27, 120, 23);
+		contentPane.add(findProduct);
+		
+		JButton createSale = new JButton("Opret salg");
+		createSale.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				openCreateSale();
 			}
 		});
-		CreateSale.setBounds(10, 25, 132, 29);
-		frame.getContentPane().add(CreateSale);
+		createSale.setBounds(10, 27, 125, 23);
+		contentPane.add(createSale);
 		
-		JButton FindProduct = new JButton("Find produkt");
-		FindProduct.addMouseListener(new MouseAdapter() {
+		JButton logOut = new JButton("Log af");
+		logOut.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				openFindProduct();
+				logOut();
 			}
 		});
-		FindProduct.setBounds(152, 25, 122, 29);
-		frame.getContentPane().add(FindProduct);
+		logOut.setBounds(275, 213, 124, 23);
+		contentPane.add(logOut);
 		
-		JButton CreateOrder = new JButton("Opret ordre");
-		CreateOrder.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				openCreateOrder();
-			}
-		});
-		CreateOrder.setBounds(284, 25, 132, 29);
-		frame.getContentPane().add(CreateOrder);
-		
-		JButton CreateProduct = new JButton("Opret produkt");
-		CreateProduct.addMouseListener(new MouseAdapter() {
+		JButton createProduct = new JButton("Opret produkt");
+		createProduct.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				openCreateProduct();
 			}
 		});
-		CreateProduct.setBounds(10, 94, 156, 29);
-		frame.getContentPane().add(CreateProduct);
+		createProduct.setBounds(275, 78, 125, 23);
+		contentPane.add(createProduct);
 		
-		JButton CreateCustomer = new JButton("Opret kunde");
-		CreateCustomer.addMouseListener(new MouseAdapter() {
+		JButton createOrder = new JButton("Opret Ordre");
+		createOrder.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				openCreateOrder();
+			}
+		});
+		createOrder.setBounds(275, 27, 125, 23);
+		contentPane.add(createOrder);
+		
+		JButton createCustomer = new JButton("Opret kunde");
+		createCustomer.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				openCreateCustomer();
 			}
 		});
-		CreateCustomer.setBounds(261, 94, 155, 29);
-		frame.getContentPane().add(CreateCustomer);
-		
-		JButton LogOut = new JButton("Log af");
-		LogOut.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				LogOut();
-			}
-		});
-		LogOut.setBounds(312, 197, 89, 23);
-		frame.getContentPane().add(LogOut);
+		createCustomer.setBounds(10, 78, 125, 23);
+		contentPane.add(createCustomer);
 		
 		init();
 	}
 
 	private void init() {
-		this.productController = new ProductController();
+		this.productController = new ProductController(); 
 	}
 
-	private void openCreateSale() {
-		
+	private void logOut() {
+		contentPane.setVisible(false);
+		dispose();
 		
 	}
 
-	private void openFindProduct() {
-		FindProduct findProduct = new FindProduct();
+	protected void FindProduct() {
+		FindProduct findProduct = new FindProduct(productController);
 		findProduct.setVisible(true);
+
+		
 	}
 
-	private void openCreateOrder() {
+	protected void openCreateOrder() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void openCreateProduct() {
+	protected void openCreateProduct() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void openCreateCustomer() {
+	protected void openCreateCustomer() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	protected void LogOut() {
-		frame.setVisible(false);
-		frame.dispose();
+	protected void openCreateSale() {
+		// TODO Auto-generated method stub
 		
 	}
 }
