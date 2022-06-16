@@ -1,5 +1,7 @@
 package gui;
 
+import utility.*;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -34,6 +36,7 @@ public class Main extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		TestData.generate();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

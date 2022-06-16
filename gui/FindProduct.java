@@ -2,6 +2,7 @@ package gui;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Graphics2D;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -39,7 +40,6 @@ public class FindProduct extends JDialog {
 		{
 			JLabel lblNewLabel = new JLabel("Indtast Stregkode:");
 			lblNewLabel.setBounds(10, 18, 133, 40);
-			contentPanel.add(lblNewLabel);
 		}
 		
 		textField = new JTextField();
@@ -48,7 +48,6 @@ public class FindProduct extends JDialog {
 		textField.setColumns(10);
 	
 		lblNewLabel_1 = new JLabel("Lokationen er:");
-		//lblNewLabel_1.setText("Lokationen er: ");
 		lblNewLabel_1.setBounds(10, 123, 111, 26);
 		contentPanel.add(lblNewLabel_1);
 		{
