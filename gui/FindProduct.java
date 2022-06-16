@@ -10,7 +10,6 @@ import javax.swing.border.EmptyBorder;
 
 import controller.CustomerController;
 import controller.ProductController;
-import ctr.Controller;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
@@ -21,7 +20,7 @@ public class FindProduct extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private ProductController productController;
 	private JTextField textField;
-	private JLabel lblNewLabel_1
+	private JLabel lblNewLabel_1;
 
 
 	/**
@@ -84,8 +83,8 @@ public class FindProduct extends JDialog {
 	}
 	
 	private void getTextFieldData() {
-		String textinput = textField.getText();
-		productController.findProduct(textinput).getLocation();
+		String textInput = textField.getText();
+		productController.findProduct(textInput).getLocation();
 		
 		lblNewLabel_1
 		
