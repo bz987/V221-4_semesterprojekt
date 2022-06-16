@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.HashMap;
+import java.util.Map;
 import java.awt.Dialog.ModalityType;
 
 public class FindProduct extends JDialog {
@@ -48,7 +50,7 @@ public class FindProduct extends JDialog {
 		textField.setColumns(10);
 	
 		lblNewLabel_1 = new JLabel("Lokationen er:");
-		lblNewLabel_1.setBounds(10, 123, 111, 26);
+		lblNewLabel_1.setBounds(10, 123, 416, 97);
 		contentPanel.add(lblNewLabel_1);
 		{
 			JPanel buttonPane = new JPanel();
@@ -88,13 +90,18 @@ public class FindProduct extends JDialog {
 		temp += textField.getText();
 		return temp;
 	}
-	private String getProductLocationData(String barcode) {
-		String temp = "";
-		temp += productController.findProduct(barcode).getLocation();
+	private HashMap<String, String> getProductData(String barcode) {
+		HashMap<String, String> temp = new HashMap<>();
+		temp.put("Location", productController.findProduct(barcode).getLocation());
+		temp.put("ProductName", productController.findProduct(barcode).getName());
+		temp.put("Amount", ""+productController.findProduct(barcode).getAmount());
 		return temp;
 	}
+
 	private void printProductLocation() {
-		lblNewLabel_1.setText("Lokationen er: "+getProductLocationData(getTextFieldData()));
+		HashMap<String, String> data = getProductData(getTextFieldData());
+		lblNewLabel_1.setText("<html>Produkt navn: " +data.get("ProductName")+"<br/>" + "Lokationen er: "+data.get("Location")+"<br/>" + "Antal :" +data.get("Amount")+"</html>");
+		
 	}
 
 	private void close() {
