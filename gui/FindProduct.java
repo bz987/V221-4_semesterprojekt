@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Dialog.ModalityType;
 
 public class FindProduct extends JDialog {
 
@@ -27,6 +28,7 @@ public class FindProduct extends JDialog {
 	 * Create the dialog.
 	 */
 	public FindProduct(ProductController productController) {
+		setModalityType(ModalityType.DOCUMENT_MODAL);
 		setTitle("Produkt s\u00F8gning");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);

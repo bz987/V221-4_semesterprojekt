@@ -13,6 +13,7 @@ import controller.ProductController;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Dialog.ModalityType;
 
 public class CreateOrder extends JDialog {
 
@@ -38,6 +39,7 @@ public class CreateOrder extends JDialog {
 	 * Create the dialog.
 	 */
 	public CreateOrder() {
+		setModalityType(ModalityType.DOCUMENT_MODAL);
 		setTitle("Ordreoprettelse");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
