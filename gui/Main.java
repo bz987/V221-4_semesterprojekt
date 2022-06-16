@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 
 import controller.CustomerController;
 import controller.ProductController;
-import ctr.Controller;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;

@@ -59,7 +59,7 @@ public class FindProduct extends JDialog {
 				okButton.addMouseListener(new MouseAdapter() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						getTextFieldData();
+						printProductLocation();
 					}
 				});
 				
@@ -82,12 +82,18 @@ public class FindProduct extends JDialog {
 		init();
 	}
 	
-	private void getTextFieldData() {
-		String textInput = textField.getText();
-		productController.findProduct(textInput).getLocation();
-		
-		lblNewLabel_1
-		
+	private String getTextFieldData() {
+		String temp = "";
+		temp += textField.getText();
+		return temp;
+	}
+	private String getProductLocationData(String barcode) {
+		String temp = "";
+		temp += productController.findProduct(barcode).getLocation();
+		return temp;
+	}
+	private void printProductLocation() {
+		lblNewLabel_1.setText("Lokationen er: "+getProductLocationData(getTextFieldData()));
 	}
 
 	private void close() {
