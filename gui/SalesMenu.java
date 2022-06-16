@@ -112,7 +112,8 @@ public class SalesMenu extends JFrame {
 	}
 
 	protected void openCreateOrder() {
-		// TODO Auto-generated method stub
+		CreateOrder createOrder = new CreateOrder();
+		createOrder.setVisible(true);
 		
 	}
 

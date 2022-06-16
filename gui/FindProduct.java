@@ -27,6 +27,7 @@ public class FindProduct extends JDialog {
 	 * Create the dialog.
 	 */
 	public FindProduct(ProductController productController) {
+		setTitle("Produkt s\u00F8gning");
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(null);
 		contentPanel.setBounds(0, 0, 436, 230);
@@ -78,11 +79,11 @@ public class FindProduct extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
-		init(productController);
+		init();
 	}
 	
 	private void getTextFieldData() {
-		
+		String textinput = textField.getText();
 		
 	}
 
@@ -92,8 +93,8 @@ public class FindProduct extends JDialog {
 		
 	}
 
-	private void init(ProductController productController) {
-		this.productController = productController;
+	private void init() {
+		productController = new ProductController();
 
 		
 	}

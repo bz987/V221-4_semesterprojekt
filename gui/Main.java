@@ -65,28 +65,28 @@ public class Main extends JFrame {
 		frmVlgEnMenu.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frmVlgEnMenu.getContentPane().setLayout(new GridLayout(0, 3, 0, 0));
 		
-		JButton btnSalg = new JButton("Salg");
-		btnSalg.addMouseListener(new MouseAdapter() {
+		JButton salgBtn = new JButton("Salg");
+		salgBtn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				OpenSalesMenu();
 			}
 		});
-		btnSalg.addActionListener(new ActionListener() {
+		salgBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		frmVlgEnMenu.getContentPane().add(btnSalg);
+		frmVlgEnMenu.getContentPane().add(salgBtn);
 		
-		JButton btnNewButton = new JButton("Manager");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton managerBtn = new JButton("Manager");
+		managerBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		frmVlgEnMenu.getContentPane().add(btnNewButton);
+		frmVlgEnMenu.getContentPane().add(managerBtn);
 		
-		JButton btnNewButton_1 = new JButton("Lager");
-		frmVlgEnMenu.getContentPane().add(btnNewButton_1);
+		JButton stockBtn = new JButton("Lager");
+		frmVlgEnMenu.getContentPane().add(stockBtn);
 		
 		init();
 	}
