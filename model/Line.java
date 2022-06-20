@@ -6,7 +6,7 @@ public class Line {
 	
 	public Line (Product product) {
 		this.product = product;
-		this.quantity = 0;
+		this.quantity = 1;
 	}
 	
 	public void addOne() {

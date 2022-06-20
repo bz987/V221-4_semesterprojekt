@@ -12,6 +12,8 @@ import controller.CustomerController;
 import controller.ProductController;
 import controller.SalesController;
 import model.Customer;
+import model.Line;
+import model.Product;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -23,6 +25,7 @@ public class CreateOrder2 extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTable table;
+	private TableModel ptm;
 	private Customer customer;
 	private SalesController salesController;
 	private ProductController productController;
@@ -92,7 +95,7 @@ public class CreateOrder2 extends JDialog {
 	private void init() {
 		salesController = new SalesController();
 		productController = new ProductController();
-		TableModel ptm = new TableModel();
+		ptm = new TableModel();
 		table.setModel(ptm);
 	}
 
@@ -102,7 +105,17 @@ public class CreateOrder2 extends JDialog {
 	}
 	
 	public void receiveData(String barcode) {
-		
+		Line l = new Line(productController.findProduct(barcode));
+		boolean foundOnTable = false;
+		for (int i=0; i<ptm.getRowCount(); i++) {
+			if (l.getBarcode().equals(ptm.getLine(i).getBarcode())) {
+				ptm.getLine(i).addOne();
+				foundOnTable = true;
+			}
+		}
+		if (!foundOnTable) {
+			ptm.addData(l);
+		}
 	}
 	public void setCustomer(String phonenumber) {
 		customer = customerController.findCustomer(phonenumber);
