@@ -30,7 +30,7 @@ public class FindProduct extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public FindProduct(ProductController productController) {
+	public FindProduct() {
 		setModalityType(ModalityType.DOCUMENT_MODAL);
 		setTitle("Produkt s\u00F8gning");
 		setBounds(100, 100, 450, 300);

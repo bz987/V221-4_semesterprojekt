@@ -93,8 +93,12 @@ public class CreateOrder2 extends JDialog {
 	}
 
 	private void Addproduct() {
-		FindProduct findproduct = new FindProduct(productController);
-		findproduct.setVisible(true);
+		FindProduct2 findproduct2 = new FindProduct2(this);
+		findproduct2.setVisible(true);
+	}
+	
+	private void receiveData(String barcode) {
+		table.add
 	}
 
 }

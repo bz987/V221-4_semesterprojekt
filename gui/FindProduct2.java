@@ -30,7 +30,7 @@ public class FindProduct2 extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public FindProduct2(ProductController productController) {
+	public FindProduct2(CreateOrder2 createOrder2) {
 		setModalityType(ModalityType.DOCUMENT_MODAL);
 		setTitle("Produkt s\u00F8gning");
 		setBounds(100, 100, 450, 300);
@@ -99,8 +99,7 @@ public class FindProduct2 extends JDialog {
 	}
 
 	private void printProductLocation() {
-		HashMap<String, String> data = getProductData(getTextFieldData());
-		lblNewLabel_1.setText("<html>Produkt navn: " +data.get("ProductName")+"<br/>" + "Lokationen er: "+data.get("Location")+"<br/>" + "Antal :" +data.get("Amount")+"</html>");
+		createOrder2.receiveData(getTextFieldData());
 		
 	}
 

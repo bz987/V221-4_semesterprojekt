@@ -56,7 +56,7 @@ public class SalesContainer {
         return true;
     }
 
-    public boolean removeOrder(int orderNumber){ //Look at later
+    public boolean removeOrder(int orderNumber){ 
         boolean found = false;
         int i = 0;
 
@@ -77,7 +77,7 @@ public class SalesContainer {
         return orders.get(i);
     }
 
-    public ArrayList<Order> getOrdersFrom(String phoneNumber, Order order){ // burde virke
+    public ArrayList<Order> getOrdersFrom(String phoneNumber, Order order){ 
         ArrayList<Order> list = new ArrayList<>();
 
         if(order.getCustomer().getPhoneNumber() == phoneNumber){
