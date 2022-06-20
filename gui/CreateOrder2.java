@@ -95,6 +95,7 @@ public class CreateOrder2 extends JDialog {
 	private void init() {
 		salesController = new SalesController();
 		productController = new ProductController();
+		customerController = new CustomerController();
 		ptm = new TableModel();
 		table.setModel(ptm);
 	}
@@ -110,6 +111,7 @@ public class CreateOrder2 extends JDialog {
 		for (int i=0; i<ptm.getRowCount(); i++) {
 			if (l.getBarcode().equals(ptm.getLine(i).getBarcode())) {
 				ptm.getLine(i).addOne();
+				ptm.fireTableDataChanged();
 				foundOnTable = true;
 			}
 		}
