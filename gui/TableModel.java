@@ -5,19 +5,25 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import model.Line;
+import model.Product;
 import model.Sale;
 
-public class LineTableModel extends AbstractTableModel{
+public class TableModel extends AbstractTableModel{
 	private static final long serialVersionUID = 1L;
-	private List<Sale> data;
-	private static final String[] NAMES = {"Name", "Quantity"};
+	private List<Line> data;
+	private static final String[] NAMES = {"Produkt navn", "Mængde", "Pris"};
 	
-	public LineTableModel() {
+	public TableModel() {
 		data = new ArrayList<>();
 	}
 	
-	public void setData(List<Sale> sale) {
-		this.data = lines;
+	public void setData(List<Line> products) {
+		this.data = products;
+		super.fireTableDataChanged();
+	}
+	public void addData(Line product) {
+		this.data.add(product);
 		super.fireTableDataChanged();
 	}
 	
@@ -39,9 +45,10 @@ public class LineTableModel extends AbstractTableModel{
 	public String getValueAt(int row, int col) {
 		Line currLine = data.get(row);
 		switch(col) {
-			case 0: return currLine.getName();
+			case 0: return currLine.getProductName();
 			case 1: return "" + currLine.getQuantity();
-			default: return "FOO-BAR";
+			case 2: return "" + currLine.getPrice()*currLine.getQuantity();
+			default: return "N/A";
 		}
 	}
 

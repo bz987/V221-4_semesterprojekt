@@ -25,12 +25,14 @@ public class FindProduct2 extends JDialog {
 	private ProductController productController;
 	private JTextField textField;
 	private JLabel lblNewLabel_1;
+	private CreateOrder2 createOrder2;
 
 
 	/**
 	 * Create the dialog.
 	 */
 	public FindProduct2(CreateOrder2 createOrder2) {
+		this.createOrder2 = createOrder2;
 		setModalityType(ModalityType.DOCUMENT_MODAL);
 		setTitle("Produkt s\u00F8gning");
 		setBounds(100, 100, 450, 300);

@@ -124,6 +124,7 @@ public class CreateOrder extends JDialog {
 		if(findCustomer()) {
 			salesController.createOrder(getTextFieldData());
 			CreateOrder2 createOrder2 = new CreateOrder2();
+			createOrder2.setCustomer(getTextFieldData());
 			createOrder2.setVisible(true);
 			this.setVisible(false);
 		}

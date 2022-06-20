@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import controller.CustomerController;
 import controller.ProductController;
 import controller.SalesController;
+import model.Customer;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -22,8 +23,10 @@ public class CreateOrder2 extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTable table;
+	private Customer customer;
 	private SalesController salesController;
 	private ProductController productController;
+	private CustomerController customerController;
 
 	/**
 	 * Create the dialog.
@@ -40,6 +43,7 @@ public class CreateOrder2 extends JDialog {
 			contentPanel.add(scrollPane, BorderLayout.CENTER);
 			{
 				table = new JTable();
+				
 				scrollPane.setViewportView(table);
 			}
 		}
@@ -88,8 +92,8 @@ public class CreateOrder2 extends JDialog {
 	private void init() {
 		salesController = new SalesController();
 		productController = new ProductController();
-		
-		
+		TableModel ptm = new TableModel();
+		table.setModel(ptm);
 	}
 
 	private void Addproduct() {
@@ -97,8 +101,11 @@ public class CreateOrder2 extends JDialog {
 		findproduct2.setVisible(true);
 	}
 	
-	private void receiveData(String barcode) {
-		table.add
+	public void receiveData(String barcode) {
+		
+	}
+	public void setCustomer(String phonenumber) {
+		customer = customerController.findCustomer(phonenumber);
 	}
 
 }
