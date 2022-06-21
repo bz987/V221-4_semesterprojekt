@@ -105,7 +105,7 @@ public class SalesMenu extends JFrame {
 	}
 
 	protected void FindProduct() {
-		FindProduct findProduct = new FindProduct(productController);
+		FindProduct findProduct = new FindProduct();
 		findProduct.setVisible(true);
 
 		
