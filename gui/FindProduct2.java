@@ -24,7 +24,6 @@ public class FindProduct2 extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private ProductController productController;
 	private JTextField textField;
-	private JLabel lblNewLabel_1;
 	private CreateOrder2 createOrder2;
 
 
@@ -50,10 +49,11 @@ public class FindProduct2 extends JDialog {
 		textField.setBounds(167, 18, 240, 40);
 		contentPanel.add(textField);
 		textField.setColumns(10);
-	
-		lblNewLabel_1 = new JLabel("Lokationen er:");
-		lblNewLabel_1.setBounds(10, 123, 416, 97);
-		contentPanel.add(lblNewLabel_1);
+		{
+			JLabel lblNewLabel_2 = new JLabel("V\u00E6lg Produkt:");
+			lblNewLabel_2.setBounds(28, 25, 129, 27);
+			contentPanel.add(lblNewLabel_2);
+		}
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBounds(0, 230, 436, 33);

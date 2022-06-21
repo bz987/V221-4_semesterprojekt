@@ -45,13 +45,17 @@ public class FindProduct extends JDialog {
 		}
 		
 		textField = new JTextField();
-		textField.setBounds(167, 18, 240, 40);
+		textField.setBounds(132, 18, 240, 40);
 		contentPanel.add(textField);
 		textField.setColumns(10);
 	
 		lblNewLabel_1 = new JLabel("Lokationen er:");
-		lblNewLabel_1.setBounds(10, 123, 416, 97);
+		lblNewLabel_1.setBounds(40, 122, 386, 97);
 		contentPanel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("S\u00F8g Produkt:");
+		lblNewLabel_2.setBounds(40, 25, 99, 27);
+		contentPanel.add(lblNewLabel_2);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBounds(0, 230, 436, 33);
