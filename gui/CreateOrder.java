@@ -111,6 +111,11 @@ public class CreateOrder extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 				{
 					JButton cancelButton = new JButton("Annuller");
+					cancelButton.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							close();
+						}
+					});
 					cancelButton.setActionCommand("Cancel");
 					buttonPane.add(cancelButton);
 				}
@@ -120,6 +125,12 @@ public class CreateOrder extends JDialog {
 			
 		}
 	}
+	private void close() {
+			contentPanel.setVisible(false);
+			dispose();
+		
+	}
+
 	private void generateOrder() {
 		if(findCustomer()) {
 			salesController.createOrder(getTextFieldData());

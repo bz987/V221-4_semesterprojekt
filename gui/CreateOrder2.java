@@ -79,6 +79,7 @@ public class CreateOrder2 extends JDialog {
 				JButton btnNewButton = new JButton("Annuller");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						close();
 					}
 				});
 				buttonPane.add(btnNewButton);
@@ -90,6 +91,12 @@ public class CreateOrder2 extends JDialog {
 			
 		}
 		init();
+	}
+
+	private void close() {
+			contentPanel.setVisible(false);
+			dispose();
+		
 	}
 
 	private void init() {
