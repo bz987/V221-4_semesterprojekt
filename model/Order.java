@@ -11,21 +11,21 @@ public class Order extends Sale{
     public Customer getCustomer(){
         return customer;
     }
-    
-    public double discountCalculator(){
-        double calculatedDiscount = 0;
-        if(isAllowance() == true){
-            //double discountedPrice = product.getRetailPrice()*(customerController.fin()/100);
-            //calculatedDiscount = discountedPrice;
+
+    @Override
+    public void calcFinalPrice(){
+        double price = 0;
+        for (Product p : listOfProducts) {
+            price += p.getRetailPrice()*calcDiscount(p);
         }
-        return calculatedDiscount;
+        finalPrice = price;
     }
     
-    public boolean isAllowance(){
-        boolean allowance = false;
-        // if(product.getPriceCost()*1.1 < product.getRetailPrice()){
-        //     allowance = true;
-        // }
-        return allowance;
+    public double calcDiscount(Product p){
+        double calculatedDiscount = 0;
+        if (p.getPriceCost()*1.2 < p.getRetailPrice()*(1-(customer.getDiscount()/100))){
+            calculatedDiscount = 1-(customer.getDiscount()/100);
+        }
+        return calculatedDiscount;
     }
 }

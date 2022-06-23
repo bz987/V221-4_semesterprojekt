@@ -3,6 +3,7 @@ package model;
 public class Line {
 	private Product product;
 	private int quantity;
+	private double discount;
 	
 	public Line (Product product) {
 		this.product = product;

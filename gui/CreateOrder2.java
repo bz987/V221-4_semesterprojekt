@@ -58,7 +58,7 @@ public class CreateOrder2 extends JDialog {
 				JButton okButton = new JButton("F\u00E6rdigg\u00F8r ordre");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						salesController.finalizeOrder();
+						finalizeOrder();
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -79,16 +79,12 @@ public class CreateOrder2 extends JDialog {
 				JButton btnNewButton = new JButton("Annuller");
 				btnNewButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						cancelOrder();
 						close();
 					}
 				});
-				buttonPane.add(btnNewButton);
-				
-				
-
-				
+				buttonPane.add(btnNewButton);				
 			}
-			
 		}
 		init();
 	}
@@ -111,6 +107,16 @@ public class CreateOrder2 extends JDialog {
 		FindProduct2 findproduct2 = new FindProduct2(this);
 		findproduct2.setVisible(true);
 	}
+
+	private void finalizeOrder(){
+		if (salesController.finalizeOrder()){
+			this.setTitle("Ordren er registreret under nummeret: "+salesController.getNumberOfOrders());
+		}
+	}
+
+	private void cancelOrder(){
+		salesController.cancelOrder();
+	}
 	
 	public void receiveData(String barcode) {
 		Line l = new Line(productController.findProduct(barcode));
@@ -125,7 +131,9 @@ public class CreateOrder2 extends JDialog {
 		if (!foundOnTable) {
 			ptm.addData(l);
 		}
+		salesController.addProduct(barcode);
 	}
+
 	public void setCustomer(String phonenumber) {
 		customer = customerController.findCustomer(phonenumber);
 	}

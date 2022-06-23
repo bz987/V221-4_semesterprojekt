@@ -70,6 +70,24 @@ public class SalesController {
         }
         return success;
     }
+
+    public boolean cancelOrder(){
+        boolean success = false;
+        this.order = null;
+        if (this.order == null){
+            success = true;
+        }
+        return success;
+    }
+
+    public boolean cancelSale(){
+        boolean success = false;
+        this.sale = null;
+        if (this.sale == null){
+            success = true;
+        }
+        return success;
+    }
     
     public boolean updateOrder(){
         return true;

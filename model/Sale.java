@@ -3,8 +3,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Sale {
-    private ArrayList<Product> listOfProducts;
-    private double finalPrice;
+    protected ArrayList<Product> listOfProducts;
+    protected double finalPrice;
     private String date;
     private int salesNumber;
 
