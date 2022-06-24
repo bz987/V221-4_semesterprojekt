@@ -64,9 +64,12 @@ public class SalesController {
     public boolean finalizeOrder(){
         boolean success = false;
         salesContainer.addOrder(order);
-        if (salesContainer.getMostRecentOrder().getSalesNumber() == order.getSalesNumber()){
-            order = null;
-            success = true;
+        Order recentOrder = salesContainer.getMostRecentOrder();
+        if (recentOrder != null) {
+        	if (recentOrder.getSalesNumber() == order.getSalesNumber()){
+        		order = null;
+        		success = true;
+        	}
         }
         return success;
     }
